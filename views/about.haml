@@ -4,17 +4,52 @@
     %title evan pavlica | colophon
     %link{href:'/styles/normalize.css', rel:'stylesheet', type:'text/css'}
     %link{href:'/styles/site.css', rel: 'stylesheet', type:'text/css' }
+    %link{href:'http://fonts.googleapis.com/css?family=Exo+2:400,300,700,400italic,300italic,900|Over+the+Rainbow|Slackey', rel:'stylesheet', type:'text/css'}
+    %link{href:'//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', rel:'stylesheet'}
 
   %body
+    %nav
+      %a{href:'/'}
+        %i{class:'fa fa-arrow-circle-o-left'}
+        Home
     .main-container.colophon
       %h2 Site Colophon
       %p
         This site was built in Los Angeles with open-source tools including:
       %ul
         %li
-          .red font
-          Exo2.0 by Nathanael Gama and shared by Smashing Magazine. Get it at
-          %a{href:'http://www.smashingmagazine.com/2013/12/10/freebie-exo-2.0-geometric-sans-serif-font'} smashing magazine.
-
-background : GPlay by Dimitrie Hoekstra. Get it at http://subtlepatterns.com/gplay/
+          .title
+            %i{class:'fa fa-font'}
+            font
+          Exo2.0 by Nathanael Gama and shared by Smashing Magazine. Hosted by Google fonts.
+          %a{href:'http://www.smashingmagazine.com/2013/12/10/freebie-exo-2.0-geometric-sans-serif-font'} Exo 2.0
+        %li
+          .title
+            %i{class:'fa fa-picture-o'}
+            background
+          GPlay by Dimitrie Hoekstra.
+          %a{href:'http://subtlepatterns.com/gplay/'} http://subtlepatterns.com/gplay/
+        %li
+          .title
+            %i{class:'fa fa-asterisk'}
+            glyphicons
+          Font Awesome
+          %a{href:'http://fontawesome.io'} http://fontawesome.io
+        %li
+          .title
+            %i{class:'fa fa-usd'}
+            javascript
+          jQuery
+          %a{href:'http://jquery.com'} http://jquery.com
+        %li
+          .title
+            %i{class:'fa fa-code'}
+            editor
+          Brackets
+          %a{href:'http://brackets.io'} http://brackets.io
+      %p
+        Source is available on
+        %a{href:'https://github.com/xicreative/evan.pavlica.us'}github
+        and is licensed under the
+        %a{href:'/gpl-3.0.html'}GNU General Public License
 

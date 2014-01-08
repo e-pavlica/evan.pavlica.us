@@ -286,5 +286,12 @@ ul {
 .colophon {
   background: rgba(255,255,255,0.7);
   box-shadow: 3px 0 3px rgba(116,116,116, 0.3), -3px 0 3px rgba(116,116,116, 0.3);
-
+  padding: 4em;
+}
+.colophon ul li {
+  padding: 1em 0;
+}
+.title {
+  font-weight:700;
+  color:#4631AE;
 }
