@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="637.83752"
+   height="84.714859"
+   id="svg7698"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="web dev.svg">
+  <defs
+     id="defs7700" />
+  <sodipodi:namedview
+     inkscape:document-units="in"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.86831672"
+     inkscape:cx="349.78158"
+     inkscape:cy="-110.81627"
+     inkscape:current-layer="layer4"
+     id="namedview7702"
+     showgrid="false"
+     units="in"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1333"
+     inkscape:window-height="718"
+     inkscape:window-x="1"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7704">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="bkg"
+     style="display:none"
+     transform="translate(-165.54823,-148.93775)">
+    <rect
+       style="fill:#fbb02e;fill-opacity:1;stroke:none"
+       id="rect8282"
+       width="806.19861"
+       height="280.948"
+       x="127.03735"
+       y="3.5902221" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-165.54823,-148.93775)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Layer"
+     transform="translate(-165.54823,-148.93775)">
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#9d8fe7;fill-opacity:0.94117647;stroke:none;font-family:'Exo 2.0';-inkscape-font-specification:'Exo 2.0'"
+       x="174.80409"
+       y="186.93875"
+       id="text7717"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7719"
+         x="174.80409"
+         y="186.93875"
+         style="font-size:53px;fill:#9d8fe7;fill-opacity:0.94117647">fabulous</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#a6e7dd;fill-opacity:0.94117647;stroke:none;font-family:'Exo 2.0';-inkscape-font-specification:'Exo 2.0'"
+       x="368.3381"
+       y="230.08484"
+       id="text7721"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7723"
+         x="368.3381"
+         y="230.08484"
+         style="font-size:35px;fill:#a6e7dd;fill-opacity:0.94117647">clever</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#fddca1;fill-opacity:1;stroke:none;font-family:'Exo 2.0';-inkscape-font-specification:'Exo 2.0'"
+       x="409.63797"
+       y="186.08058"
+       id="text7733"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7735"
+         x="409.63797"
+         y="186.08058">functional</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#75d0c1;fill-opacity:1;stroke:none;font-family:'Exo 2.0';-inkscape-font-specification:'Exo 2.0'"
+       x="748.91528"
+       y="192.99048"
+       id="text7737"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7739"
+         x="748.91528"
+         y="192.99048"
+         style="font-size:32px;fill:#75d0c1;fill-opacity:1">fun</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#8eaee1;fill-opacity:1;stroke:none;font-family:'Exo 2.0';-inkscape-font-specification:'Exo 2.0'"
+       x="558.81207"
+       y="233.02861"
+       id="text7741"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7743"
+         x="558.81207"
+         y="233.02861"
+         style="font-size:52px;fill:#8eaee1;fill-opacity:1">creative</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:'Exo 2.0';-inkscape-font-specification:'Exo 2.0'"
+       x="161.94823"
+       y="214.96368"
+       id="text8277"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8279"
+         x="161.94823"
+         y="214.96368"
+         style="font-size:48px;font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:'Exo 2.0';-inkscape-font-specification:'Exo 2.0 Semi-Bold'">Full-Stack Web Development</tspan></text>
+  </g>
+</svg>
