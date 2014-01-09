@@ -30,11 +30,11 @@
               resume
           %a{href:'https://github.com/xicreative', class:'gh'}
             %li
-              %i{class:'fa fa-github'}
+              %i{class:'fa fa-github-square'}
               github
           %a{href:'https://twitter.com/e_pavlica', class:'tw'}
             %li
-              %i{class:'fa fa-twitter'}
+              %i{class:'fa fa-twitter-square'}
               twitter
           %a{href:'https://plus.google.com/+EvanPavlica/', class:'gp'}
             %li
@@ -44,12 +44,12 @@
             %li
               %i{class:'fa fa-linkedin-square'}
               linkedin
-          %a{href:'/contact', class:'contact'}
+          %a{href:'#', class:'contact contactBtn'}
             %li
               %i{class:'fa fa-phone-square'}
               contact
         %ul
-          %h5 Projects
+          %h5 Project
           %a{href:'http://spyrolo.us', class:'spy'}
             %li
               spyrolo.us
@@ -112,4 +112,26 @@
                 Thanks for visiting.
                 %i{class:'fa fa-smile-o'}
             .g-1-3
+
+
+    /a card that will be displayed when the 'contact' link is clicked.
+    #contactCard
+      #closeContact
+        %i{class:'fa fa-times'}
+      .hi
+        contact me!
+      .row
+        .g-1-4
+          %i{class:'fa fa-envelope-o'}
+          email
+        .g-3-4
+          %a{href:'mailto:epavlica@gmail.com'} epavlica@gmail.com
+          %br
+          %a{href:'mailto:evan@xicreative.net'} evan@xicreative.net
+      .row
+        .g-1-4
+          %i{class:'fa fa-phone'}
+          phone
+        .g-3-4
+          818.428.5200
 

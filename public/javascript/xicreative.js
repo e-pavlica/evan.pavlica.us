@@ -2,13 +2,11 @@
 
 // **** js for evan.pavlica.us / xicreative.net, Jan 2014 **** //
 
-var $;
 
 var menuOpen = false;
 
-$(function() {
-    console.log('jq loded');
 
+$(function() {
 
     // bind clicks to the dropdown button
     $('#dropdownMenuBtn').click(showHideMenu);
@@ -16,11 +14,26 @@ $(function() {
     var drop = $('#dropdownMenu');
     drop.append($('.nav-column').html());
 
-    function showHideMenu() {
-        console.log('click event!');
+    // open the contact card
+    $('.contactBtn').click(function(e){
+      e.preventDefault();
+      openContact();
+    });
 
+    function openContact() {
+      $('#contactCard').fadeIn();
+    }
+
+    // close the contact card
+    $('#closeContact').click(closeContact);
+
+    function closeContact() {
+      $('#contactCard').fadeOut();
+    }
+
+    function showHideMenu() {
         if (menuOpen === false) {
-            //create the dropdown and slide it down
+            // open the dropdown
             drop.slideDown();
             menuOpen = true;
         } else {
@@ -29,5 +42,4 @@ $(function() {
             menuOpen = false;
         }
     }
-
 });

@@ -295,3 +295,24 @@ ul {
   font-weight:700;
   color:#4631AE;
 }
+
+/**/
+/* Contact Card */
+/**/
+
+#contactCard {
+  display:none;
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  top: 20%;
+  padding: 10%;
+  background: rgba(255, 255, 255, 1.0);
+  box-shadow: 0 0 100em black;
+}
+#closeContact {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  cursor:pointer;
+}
