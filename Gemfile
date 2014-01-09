@@ -10,3 +10,4 @@ gem 'capistrano'
 
 # use haml
 gem 'haml'
+
