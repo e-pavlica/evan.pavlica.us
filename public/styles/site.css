@@ -75,9 +75,18 @@ a:hover {
     -webkit-flex: 1 100%;
     flex: 1 100%;
   }
+  .row > .g-1-3.n-r {
+    -webkit-flex: 3 1 33.333%;
+    flex: 3 1 33.3333%;
+  }
+  
+  .row > .g-2-3.n-r {
+    -webkit-flex : 3 2 66.667%;
+    flex : 3 2 66.667%;
+  }
 }
 
-/* Override the Google Voice Browser extension*/
+/* Override the Google Voice Browser extension for Phone #s */
 span.gc-cs-link {
   text-decoration: none;
   color: #37527E;
@@ -268,7 +277,7 @@ ul {
 @media screen and (max-width: 640px) {
   .evanPic {
     position:static;
-    float:right;
+    height:100%;
   }
   .nav-column {
     display:none;
