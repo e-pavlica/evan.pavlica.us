@@ -1,6 +1,9 @@
  /*CSS for evan pavlica's resume, 12/2013 */
 
-
+/* Support for browsers that can't do flex-wrap (firefox) */
+@supports not (flex-wrap: wrap) {
+    .row { display: block }
+  }
 
 header {
   margin: 0 0 1em;

@@ -79,7 +79,7 @@ a:hover {
     -webkit-flex: 3 1 33.333%;
     flex: 3 1 33.3333%;
   }
-  
+
   .row > .g-2-3.n-r {
     -webkit-flex : 3 2 66.667%;
     flex : 3 2 66.667%;
@@ -219,6 +219,14 @@ ul {
   width: inherit;
   height: 30%
 }
+/* Support for browsers that can't do flex-wrap (firefox) */
+@supports not (flex-wrap: wrap) {
+  #web-dev {
+    width: 100%;
+    height: 60px;
+  }
+}
+
 
 /**/
 /* Make it responsive */
@@ -279,11 +287,16 @@ ul {
     position:static;
     height:100%;
   }
+
   .nav-column {
     display:none;
   }
   #mobileNav {
     display:block;
+  }
+  @supports not (flex-wrap: wrap){
+    .evanPic {display: none;}
+    .row {display:block;}
   }
 }
 
