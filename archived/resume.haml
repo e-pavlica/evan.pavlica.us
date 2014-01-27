@@ -1,0 +1,118 @@
+!!! 5
+%html
+  %head
+    %title evan pavlica | resume
+    %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
+    %script{src:'//code.jquery.com/jquery-1.10.2.min.js'}
+    %script{src:'/javascript/comment.min.js', firebase:'https://fire-list.firebaseio.com/'}
+    %link{href:'http://fonts.googleapis.com/css?family=Exo+2:300,400,700,900', rel:'stylesheet', type:'text/css'}
+    %link{href:'/styles/normalize.css', rel:'stylesheet', type:'text/css'}
+    %link{href:'/styles/site.css', rel:'stylesheet', type:'text/css'}
+    %link{href:'/styles/resume.css', rel:'stylesheet', type:'text/css'}
+  %body
+    .container
+      %header
+        .name
+          Evan J Pavlica
+        .address
+          7737 Hollywood Boulevard / Los Angeles, CA 90046 / 818.428.5200 / 
+          %a{href:'mailto:evan@xicreative.net'}evan@xicreative.net
+      #resumeBody
+
+        / ****** Education Section *******
+        .row.section
+          .g-1.label
+            Education
+          #education.g-1
+            .row.emphasis
+              .g-1-4.red
+                General Assembly
+              .g-1-4
+                Santa Monica, CA
+              .g-1-4
+                Web Development Immersive
+              .g-1-4
+                Fall 2013
+            .g-1.description
+              Full-stack web development training with emphasis in Ruby on Rails & Java script. This 12-week full-time immersive taught me agile web development & BDD / TDD, and gave me opportunity to add four projects to my portfolio while gaining valuable insight into the LA Startup scene.
+            .row.emphasis
+              .g-1-4.red
+                Columbia College Hollywood
+              .g-1-4
+                Tarzana, CA
+              .g-1-4
+                BFA, Cinema / Television
+              .g-1-4
+                2005-2008
+            .g-1.description
+              <i>Producing Emphasis.</i> Education in all aspects of film / television production. Skills from Columbia College include Budgeting & Scheduling, Production Management, Sound Mixing, and Video Editing.
+
+        / ******* Work Experience ********
+        .row.section
+          .g-1.label
+            Employment
+          #employment.g-1
+            .row.emphasis
+              .g-1-4.red
+                CBS Entertainment
+              .g-1-4
+                Los Angeles, CA
+              .g-1-4
+                Administrative Assistant
+              .g-1-4
+                2007-2013
+            .g-1.description
+              Prize Warehouse Administrative Assistant responsible for overseeing operations of $4.3 Million warehouse. Duties included inventory management, collaboration with <i>The Price is Right</i> producers, management of department records storage, and preparation of merchandise for display.
+
+        / ******* Technical Experience *******
+        .row.section
+          .g-1.label
+            Technical Experience
+          #techExperience.g-1
+            .g-1.emphasis
+              Projects:
+            .row
+              .g-1-4.emphasis.red.project
+                Tiq Taq Toe
+              .g-3-4.description
+                A multi-player tic-tac-toe game built in Angular.js with a Firebase backend. 
+                %a{target:'_blank', href:'http://tiqtac.herokuapp.com/'} http://tiqtac.herokuapp.com
+            .row
+              .g-1-4.emphasis.red.project
+                dalSegno
+              .g-3-4.description
+                A bulletin board web app intended for small communities; built on Ruby on Rails 4 with a MongoDB backend. 
+                %a{target:'_blank', href:'http://dalsegno.herokuapp.com'} http://dalsegno.herokuapp.com
+            .row
+              .g-1-4.emphasis.red.project
+                Hop To It
+              .g-3-4.description
+                Non-profit crowd-funding for non-profits. This web app built on Rails 4 and PostreSQL would enable verified 501(c)3 organizations to crowd-fund projects without having to pay the fees that other crowd funding sites like kickstarter charge. (WIP)
+            .row
+              .g-1-4.emphasis.red.project
+                Spyrolous
+              .g-3-4.description
+                This cross-device multi-user / multi-screen drawing app is built on Rails 4 and PostgreSQL.
+                %a{target:'_blank', href:'http://spyrolo.us'} http://spyrolo.us
+            .g-1.project
+              Source code for these projects is available on my github: 
+              %a{target:'_blank', href:'https://github.com/xicreative'}https://github.com/xicreative
+
+        / ******* Languages & Technologies *******
+        .row.section
+          .g-1.label
+            Languages &amp; Technologies
+          #languages.g-1
+            .row
+              .g-1-4.emphasis
+                Languages
+              .g-3-4.description
+                Ruby, Javascript, HAML, HTML 5, CSS, CoffeeScript
+            .row
+              .g-1-4.emphasis
+                Technologies &amp; Frameworks
+              .g-3-4.description
+                Ruby on Rails, PostgreSQL, MongoDB, Angular.js, Bootstrap, jQuery
+                
+      %footer
+        &Xi;
