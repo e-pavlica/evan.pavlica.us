@@ -1,172 +1,219 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>evan pavlica | resume</title>
-    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-    <script src='//code.jquery.com/jquery-1.10.2.min.js'></script>
-    <script firebase='https://fire-list.firebaseio.com/' src='/javascript/comment.min.js'></script>
-    <link href='http://fonts.googleapis.com/css?family=Exo+2:300,400,700,900' rel='stylesheet' type='text/css'>
-    <link href='/styles/normalize.css' rel='stylesheet' type='text/css'>
-    <link href='/styles/site.css' rel='stylesheet' type='text/css'>
-    <link href='/styles/resume.css' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <div class='container'>
-      <header>
-        <div class='name'>
-          Evan J Pavlica
-        </div>
-        <div class='address'>
-          7737 Hollywood Boulevard / Los Angeles, CA 90046 / 818.428.5200 /
-          <a href='mailto:evan@xicreative.net'>evan@xicreative.net</a>
-        </div>
-      </header>
-      <div id='resumeBody'>
-        <!-- ****** Education Section ******* -->
-        <div class='row section'>
-          <div class='g-1 label'>
-            Education
-          </div>
-          <div class='g-1' id='education'>
-            <div class='row emphasis'>
-              <div class='g-1-4 red'>
-                General Assembly
-              </div>
-              <div class='g-1-4'>
-                Santa Monica, CA
-              </div>
-              <div class='g-1-4'>
-                Web Development Immersive
-              </div>
-              <div class='g-1-4'>
-                Fall 2013
-              </div>
-            </div>
-            <div class='g-1 description'>
-              Full-stack web development training with emphasis in Ruby on Rails & Java script. This 12-week full-time immersive taught me agile web development & BDD / TDD, and gave me opportunity to add four projects to my portfolio while gaining valuable insight into the LA Startup scene.
-            </div>
-            <div class='row emphasis'>
-              <div class='g-1-4 red'>
-                Columbia College Hollywood
-              </div>
-              <div class='g-1-4'>
-                Tarzana, CA
-              </div>
-              <div class='g-1-4'>
-                BFA, Cinema / Television
-              </div>
-              <div class='g-1-4'>
-                2005-2008
-              </div>
-            </div>
-            <div class='g-1 description'>
-              <i>Producing Emphasis.</i> Education in all aspects of film / television production. Skills from Columbia College include Budgeting & Scheduling, Production Management, Sound Mixing, and Video Editing.
-            </div>
-          </div>
-        </div>
-        <!-- ******* Work Experience ******** -->
-        <div class='row section'>
-          <div class='g-1 label'>
-            Employment
-          </div>
-          <div class='g-1' id='employment'>
-            <div class='row emphasis'>
-              <div class='g-1-4 red'>
-                CBS Entertainment
-              </div>
-              <div class='g-1-4'>
-                Los Angeles, CA
-              </div>
-              <div class='g-1-4'>
-                Administrative Assistant
-              </div>
-              <div class='g-1-4'>
-                2007-2013
-              </div>
-            </div>
-            <div class='g-1 description'>
-              Prize Warehouse Administrative Assistant responsible for overseeing operations of $4.3 Million warehouse. Duties included inventory management, collaboration with <i>The Price is Right</i> producers, management of department records storage, and preparation of merchandise for display.
-            </div>
-          </div>
-        </div>
-        <!-- ******* Technical Experience ******* -->
-        <div class='row section'>
-          <div class='g-1 label'>
-            Technical Experience
-          </div>
-          <div class='g-1' id='techExperience'>
-            <div class='g-1 emphasis'>
-              Projects:
-            </div>
-            <div class='row'>
-              <div class='g-1-4 emphasis red project'>
-                Tiq Taq Toe
-              </div>
-              <div class='g-3-4 description'>
-                A multi-player tic-tac-toe game built in Angular.js with a Firebase backend.
-                <a href='http://tiqtac.herokuapp.com/' target='_blank'>http://tiqtac.herokuapp.com</a>
-              </div>
-            </div>
-            <div class='row'>
-              <div class='g-1-4 emphasis red project'>
-                dalSegno
-              </div>
-              <div class='g-3-4 description'>
-                A bulletin board web app intended for small communities; built on Ruby on Rails 4 with a MongoDB backend.
-                <a href='http://dalsegno.herokuapp.com' target='_blank'>http://dalsegno.herokuapp.com</a>
-              </div>
-            </div>
-            <div class='row'>
-              <div class='g-1-4 emphasis red project'>
-                Hop To It
-              </div>
-              <div class='g-3-4 description'>
-                Non-profit crowd-funding for non-profits. This web app built on Rails 4 and PostreSQL would enable verified 501(c)3 organizations to crowd-fund projects without having to pay the fees that other crowd funding sites like kickstarter charge. (WIP)
-              </div>
-            </div>
-            <div class='row'>
-              <div class='g-1-4 emphasis red project'>
-                Spyrolous
-              </div>
-              <div class='g-3-4 description'>
-                This cross-device multi-user / multi-screen drawing app is built on Rails 4 and PostgreSQL.
-                <a href='http://spyrolo.us' target='_blank'>http://spyrolo.us</a>
-              </div>
-            </div>
-            <div class='g-1 project'>
-              Source code for these projects is available on my github:
-              <a href='https://github.com/xicreative' target='_blank'>https://github.com/xicreative</a>
-            </div>
-          </div>
-        </div>
-        <!-- ******* Languages & Technologies ******* -->
-        <div class='row section'>
-          <div class='g-1 label'>
-            Languages &amp; Technologies
-          </div>
-          <div class='g-1' id='languages'>
-            <div class='row'>
-              <div class='g-1-4 emphasis'>
-                Languages
-              </div>
-              <div class='g-3-4 description'>
-                Ruby, Javascript, HAML, HTML 5, CSS, CoffeeScript
-              </div>
-            </div>
-            <div class='row'>
-              <div class='g-1-4 emphasis'>
-                Technologies &amp; Frameworks
-              </div>
-              <div class='g-3-4 description'>
-                Ruby on Rails, PostgreSQL, MongoDB, Angular.js, Bootstrap, jQuery
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer>
-        &Xi;
-      </footer>
-    </div>
-  </body>
+<head>
+<title>evan pavlica | resume</title>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<script src='//code.jquery.com/jquery-1.10.2.min.js'></script>
+<script firebase='https://fire-list.firebaseio.com/' src='/javascript/comment.min.js'></script>
+<link href='http://fonts.googleapis.com/css?family=Exo+2:300,400,700,900' rel='stylesheet' type='text/css'>
+<link href='/styles/normalize.css' rel='stylesheet' type='text/css'>
+<link href='/styles/site.css' rel='stylesheet' type='text/css'>
+<link href='/styles/resume2.css' rel='stylesheet' type='text/css'>
+<link href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+</head>
+<body>
+<nav>
+<a href='/'>
+<i class='fa fa-arrow-circle-o-left'></i>
+Home
+</a>
+</nav>
+<div class='container'>
+<header>
+<div class='name'>
+Evan J Pavlica
+</div>
+<div class='row address'>
+<div class='g-1-2'>
+<i class='fa fa-home'></i>
+7737 Hollywood Boulevard, Los Angeles, CA 90046
+</div>
+<div class='g-1-4'>
+<i class='fa fa-phone'></i>
+818.428.5200
+</div>
+<div class='g-1-4'>
+<i class='fa fa-envelope'></i>
+<a href='mailto:epavlica@gmail.com'>epavlica@gmail.com</a>
+</div>
+</div>
+</header>
+<div id='resumeBody'>
+<!-- ******* Languages & Technologies ******* -->
+<div class='row section'>
+<div class='g-1-4 centered o-1'>
+<div class='dot' title='Languages &amp; Technologies'>
+<div class='v-1-3'></div>
+<div class='v-1-3'>
+<i class='fa fa-info'></i>
+</div>
+<div class='v-1-3'></div>
+</div>
+<div class='label'>
+Info
+</div>
+</div>
+<div class='g-3-4 o-2' id='languages'>
+<div class='row'>
+<div class='g-1 description'>
+I am a Full-Stack Developer, capable of building and maintaining web applications using the latest technologies. In addition to back-end development skills using both relational and document-based databases, my front-end skills are informed by my 7 years experience in the entertainment industry, which strengthens my ability to design attractive, modern, user-friendly web experiences.
+</div>
+<div class='g-1-4 emphasis'>
+Languages
+</div>
+<div class='g-3-4 description'>
+Ruby, JavaScript, HTML 5, CSS, HAML, SASS, CoffeeScript
+</div>
+<div class='g-1-4 emphasis'>
+Technologies &amp; Frameworks
+</div>
+<div class='g-3-4 description'>
+Ruby on Rails, PostgreSQL, MongoDB, Angular.js, Bootstrap, jQuery
+</div>
+</div>
+</div>
+</div>
+<!-- ******* Technical Experience ******* -->
+<div class='row section'>
+<div class='g-1-4 centered o-2'>
+<div class='dot' title='Development Experience'>
+<div class='v-1-3'></div>
+<div class='v-1-3'>
+<i class='fa fa-code'></i>
+</div>
+<div class='v-1-3'></div>
+</div>
+<div class='label'>
+Development Experience
+</div>
+</div>
+<div class='g-3-4 o-1' id='techExperience'>
+<div class='row'>
+<div class='g-1-4 emphasis'>
+<a href='http://tiqtac.herokuapp.com/' target='_blank'>Tiq Taq Toe</a>
+</div>
+<div class='g-3-4 description'>
+A multi-player tic-tac-toe game built in Angular.js with a Firebase backend.
+</div>
+<div class='g-1-4 emphasis'>
+<a href='http://dalsegno.herokuapp.com' target='_blank'>dalSegno</a>
+</div>
+<div class='g-3-4 description'>
+A bulletin board web app intended for small communities; built on Ruby on Rails 4 with a MongoDB backend.
+</div>
+<div class='g-1-4 emphasis'>
+<a href='http://hoptoitfunding.com' target='_blank'>Hop To It</a>
+</div>
+<div class='g-3-4 description'>
+A crowd-funding web app built on Rails 4 and PostreSQL that would enable verified 501(c)3 organizations to crowd-fund projects.
+</div>
+<div class='g-1-4 emphasis'>
+<a href='http://spyrolo.us' target='_blank'>Spyrolous</a>
+</div>
+<div class='g-3-4 description'>
+A multi-user / multi-screen drawing app using jQuery and Snap.svg, built on Rails 4 and PostgreSQL.
+</div>
+<div class='g-1-4 centered'>
+<a href='https://github.com/xicreative' target='_blank'>
+<i class='fa fa-github fa-2x'></i>
+</a>
+</div>
+<div class='g-3-4 description emphasis'>
+Please visit my github to see the source code for all of my projects:
+<a href='https://github.com/xicreative' target='_blank'>github.com/xicreative</a>
+</div>
+</div>
+</div>
+</div>
+<!-- ******* Work Experience ******** -->
+<div class='row section'>
+<div class='g-1-4 centered o-1'>
+<div class='dot' title='Employment'>
+<div class='v-1-3'></div>
+<div class='v-1-3'>
+<i class='fa fa-briefcase'></i>
+</div>
+<div class='v-1-3'></div>
+</div>
+<div class='label'>
+Work Experience
+</div>
+</div>
+<div class='g-3-4 o-2' id='employment'>
+<div class='row'>
+<div class='g-1-2'>
+CBS Entertainment
+</div>
+<div class='g-1-2'>
+Los Angeles, CA
+</div>
+<div class='g-1-2 emphasis'>
+Administrative Assistant
+</div>
+<div class='g-1-2'>
+2007-2013
+</div>
+</div>
+<div class='g-1 description'>
+Prize Warehouse Administrative Assistant responsible for overseeing operations of $4.3 Million warehouse. Duties included inventory management, collaboration with <i>The Price is Right</i> producers, management of department records storage, and preparation of merchandise for display.
+</div>
+</div>
+</div>
+<!-- ****** Education Section ******* -->
+<div class='row section'>
+<div class='g-1-4 centered o-2'>
+<div class='dot' title='Education'>
+<div class='v-1-3'></div>
+<div class='v-1-3'>
+<i class='fa fa-book'></i>
+</div>
+<div class='v-1-3'></div>
+</div>
+<div class='label'>
+Education
+</div>
+</div>
+<div class='g-3-4 o-1' id='education'>
+<div class='row'>
+<div class='g-1-2'>
+General Assembly
+</div>
+<div class='g-1-2'>
+Santa Monica, CA
+</div>
+<div class='g-1-2 emphasis'>
+Web Development Immersive
+</div>
+<div class='g-1-2'>
+Fall 2013
+</div>
+</div>
+<div class='g-1 description'>
+Full-stack web development training with emphasis in Ruby on Rails & Java script. This 12-week full-time immersive taught me agile web development & BDD / TDD, and gave me opportunity to add four projects to my portfolio while gaining valuable insight into the LA Startup scene.
+</div>
+<div class='row'>
+<div class='g-1-2'>
+Columbia College Hollywood
+</div>
+<div class='g-1-2'>
+Tarzana, CA
+</div>
+<div class='g-1-2 emphasis'>
+BFA, Cinema / Television
+</div>
+<div class='g-1-2'>
+2005-2008
+</div>
+</div>
+<div class='g-1 description'>
+<i>Producing Emphasis.</i> Education in all aspects of film / television production. Skills from Columbia College include Budgeting & Scheduling, Production Management, Sound Mixing, and Video Editing.
+</div>
+</div>
+</div>
+</div>
+<footer>
+&Xi;
+</footer>
+</div>
+</body>
 </html>

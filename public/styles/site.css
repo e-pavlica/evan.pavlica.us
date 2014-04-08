@@ -290,8 +290,11 @@ ul {
 
 @media screen and (max-width: 640px) {
   .evanPic {
-    position:static;
-    height:100%;
+    display: block;
+    position: relative;
+    height: 150px;
+    width: 150px;
+    right: 25%;
   }
 
   .nav-column {
