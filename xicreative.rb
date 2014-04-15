@@ -1,4 +1,4 @@
-module SERVER
+module KeyMS
 
   ##########################
   # Define the data models #
@@ -9,146 +9,39 @@ module SERVER
 
 
   ####################################
-  # Define the main server process   #
+  # Define the main KeyMS process   #
   ####################################
 
-  class Main < Sinatra::Base
+  class App < Sinatra::Application
     register Sinatra::Contrib
     register Sinatra::Subdomain
+    register Sinatra::CrossOrigin
 
     ##### application configuration #####
+    require (File.dirname(__FILE__) + '/secrets')
     set :root, File.dirname(__FILE__)
-    set :haml, :format => :html5
+    set :haml, { :format => :html5, :ugly => true }
     Mongoid.load!(File.dirname(__FILE__) + '/mongoid.yml')
-    configure :development do
-      enable :sessions, :logging, :dump_errors
+
+    configure do
+      enable  :logging, :dump_errors, :cross_origin #:sessions
     end
 
-    ##### Helpers #####
-    current_time = lambda { Time.now }
-
-
-    ###### Static Pages ######
-    before do
-      content_type :html
-    end
-
-    get '/' do
-      haml :index
-    end
-
-    get '/resume' do
-      haml :resume
-    end
-
-    get '/about' do
-      haml :about
-    end
-
-    get '/blog' do
-      # base page for blog this portion is a SPA
-      haml :blog
-    end
-
-    ### These will be the template partials for the angular.js portion of the site
-    get '/templates/:name' do
-      haml "/blog_templates/#{params[:name]}".to_sym, :format => :html5
-    end
-
-    ### Stylus templates for styling ###
-    get '/css/:name' do
-      stylus "../stylus/#{params[:name]}".to_sym
-    end
-
-
-    #### API calls for front-end MVVC ####
-    subdomain :api do
-      respond_to :html, :json
-
-      ## CRUD for blog posts ##
-      get '/posts.?:format?' do
-        content_type :json
-        @posts = Post.where(published:true)
-        @posts.to_json
+    require 'jsonify'
+    require 'jsonify/tilt'
+    helpers do
+      def jsonify(*args) 
+        render(:jsonify, *args) 
       end
+    end
 
-      post '/posts.?:format?' do
-        content_type :json
-        if !session[:user] || session[:user] == ''
-          halt 401, {error:'Login required'}.to_json
-        else 
-          @user = User.find(session[:user])
-          @post = Post.new(params) #TODO: Add strong params for posts
-          @post.user = @user
-          @post.created = current_time.call
-          if @post.save
-            halt 201, @post.to_json
-          else
-            halt 500
-          end
-        end
-      end
+    set :allow_origin, :any # TODO: lock this down before deploy
+    set :allow_credentials, true
+    set :allow_methods, [:get, :post, :put]
 
-      get '/posts/:id.?:format?' do
-        content_type :json
-        @post = Post.find(params[:id])
+    ##### Routes #####
+    Dir.glob(File.dirname(__FILE__) + '/routes/*.rb') { |file| require file}
 
-        if @post
-          @post.to_json
-        else
-          halt 404
-        end
-      end
-
-      put '/posts/:id.?:format?' do
-        content_type :json
-        @post = Post.find(params[:id])
-        if (!session[:user] || session[:user] == '')
-          halt 401, {error:'Login required'}.to_json
-        elsif @post.user != session[:user]
-          halt 401, {error:'You don\'t have permission to edit this post'}.to_json
-        else
-          if @post.update(params)
-            halt 201, @post
-          else
-            halt 500, @post.errors.messages
-          end
-        end
-      end
-
-      ###### Users Controller ######
-      post '/users.?:format?' do # create a new user
-        content_type :json
-        @user = User.new(params)
-        if @user.save
-          halt 201, @user.id.to_json
-        else
-          halt 500, @user.errors.messages.to_json
-        end
-      end
-
-      post '/login.?:format?' do #authenticate user
-        content_type :json
-        if @user = User.find_by(email: params[:email])
-          # binding.pry
-
-          if @user.authenticate(params[:password])
-            session[:user] = @user
-            @user.id.to_json
-          else
-            halt 500, "Invalid Password.".to_json
-          end
-        end
-      end
-
-      post '/logout.?:format?' do
-        content_type :json
-        session[:user] = ''
-      end
-
-      # TODO: password reset
-
-    end # subdomain :api
 
   end
 

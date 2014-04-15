@@ -1,0 +1,6 @@
+@posts.each do |p|
+  json.tag!("#{p.id}") do
+    json.title p.title
+    json.content p.content
+  end
+end

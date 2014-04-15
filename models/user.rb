@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'jwt'
 
 class User
   include Mongoid::Document
@@ -27,6 +28,11 @@ class User
     end
   end
 
+  def self.check_token(request)
+    token = request.env['HTTP_AUTHORIZATION']
+    payload = JWT.decode(token, ENV['SECRET'])
+    User.find(payload['id'])
+  end
 
   private
   def hash_password
