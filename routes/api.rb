@@ -69,7 +69,7 @@ class KeyMS::App < Sinatra::Application
       content_type :json
       @user = User.new(params)
       if @user.save
-        halt 201, @user.id.to_json
+        halt 201, @user.id.to_json # TODO: generate a token 
       else
         halt 500, @user.errors.messages.to_json
       end
@@ -85,8 +85,7 @@ class KeyMS::App < Sinatra::Application
       if @user = User.find_by(email: payload['email'])
 
         if @user.authenticate(payload['password'])
-          token = JWT.encode({'email' => @user.email, 'id' => @user.id}, ENV['SECRET'])
-          {token: token}.to_json
+          @user.create_token
         else
           halt 401, {error:"Invalid Password."}.to_json
         end

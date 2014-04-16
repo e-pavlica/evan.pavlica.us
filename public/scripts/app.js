@@ -12,6 +12,10 @@ var app = angular.module('keymsApp', [
         templateUrl: 'templates/posts.html',
         controller: 'PostsController'
       })
+      .when('/new', {
+        templateUrl: 'templates/new.html',
+        controller: 'PostsController'
+      })
       .when('/login', {
         templateUrl: 'templates/login.html',
         controller: 'UsersController'

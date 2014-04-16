@@ -7,6 +7,8 @@ module KeyMS
 
   # TODO: add assets (paperclip??) for posts
 
+  # TODO: implement a minify scheme like this: https://github.com/sinefunc/sinatra-minify
+
 
   ####################################
   # Define the main KeyMS process   #

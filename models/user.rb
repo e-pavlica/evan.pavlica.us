@@ -28,6 +28,12 @@ class User
     end
   end
 
+  def create_token
+    token = JWT.encode({'email' => self.email, 'id' => self.id}, ENV['SECRET'])
+    response = { token: token, email: self.email, name: self.first_name}
+    JSON.generate(response)
+  end
+
   def self.check_token(request)
     token = request.env['HTTP_AUTHORIZATION']
     payload = JWT.decode(token, ENV['SECRET'])
@@ -39,6 +45,10 @@ class User
     if password.present?
       self.hashed_password = Password.create(password)
     end
+  end
+
+  def self.full_name
+    self.first_name + ' ' + self.last_name
   end
 
 end
