@@ -17,3 +17,7 @@ app.controller('PostsController', function($scope, Post) {
 });
 
 
+app.controller('SinglePostCtrl', function($scope, Post, $routeParams) {
+    $scope.id = $routeParams.id;
+    $scope.post = Post.get({id: $scope.id});
+});

@@ -9,12 +9,16 @@ var app = angular.module('keymsApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'templates/posts.html',
+        templateUrl: 'templates/index.html',
         controller: 'PostsController'
       })
       .when('/new', {
         templateUrl: 'templates/new.html',
         controller: 'PostsController'
+      })
+      .when('/posts/:id', {
+        templateUrl: 'templates/show.html',
+        controller: 'SinglePostCtrl'
       })
       .when('/login', {
         templateUrl: 'templates/login.html',

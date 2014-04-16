@@ -6,16 +6,19 @@ class KeyMS::App < Sinatra::Application
 
     options '/posts.?:format?' do
       cross_origin :allow_credentials => true,
-        :allow_methods => [:get, :post, :put]
+        :allow_methods => [:get, :post]
     end
 
     ## CRUD for blog posts ##
+
+    # return all blog posts that are published
     get '/posts.?:format?' do
       content_type :json
       @posts = Post.where(published:true)
       jsonify :posts
     end
 
+    # create new blog post
     post '/posts.?:format?' do
       content_type :json
       @user = User.check_token(request)
@@ -31,6 +34,11 @@ class KeyMS::App < Sinatra::Application
       else 
         halt 401, { error: 'Login required' }.to_json
       end
+    end
+
+    options '/posts/:id.?:format?' do
+      cross_origin :allow_credentials => true,
+        :allow_methods => [:get, :put]
     end
 
     get '/posts/:id.?:format?' do

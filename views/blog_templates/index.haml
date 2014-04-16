@@ -1,6 +1,6 @@
 .posts(ng-repeat='(postId, post) in posts')
-  %a(href="/blog/{{ postId }}")
-  %h3 {{ post.title }}
+  %a(href="/blog#/posts/{{ postId }}")
+    %h3 {{ post.title }}
   %br
   {{ post.content }}
 
