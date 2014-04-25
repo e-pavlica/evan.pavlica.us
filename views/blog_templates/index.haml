@@ -1,6 +1,5 @@
-.posts(ng-repeat='(postId, post) in posts')
+.keyms-post(ng-repeat='(postId, post) in posts')
   %a(href="/blog#/posts/{{ postId }}")
     %h3 {{ post.title }}
   %br
   {{ post.content }}
-
