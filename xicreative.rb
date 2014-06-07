@@ -1,14 +1,12 @@
 module KeyMS
-
   ##########################
   # Define the data models #
   ##########################
-  Dir.glob(File.dirname(__FILE__) + '/models/*.rb') { |file| require file}
+  Dir.glob(File.dirname(__FILE__) + '/models/*.rb') { |file| require file }
 
   # TODO: add assets (paperclip??) for posts
 
   # TODO: implement a minify scheme like this: https://github.com/sinefunc/sinatra-minify
-
 
   ####################################
   # Define the main KeyMS process   #
@@ -20,20 +18,21 @@ module KeyMS
     register Sinatra::CrossOrigin
 
     ##### application configuration #####
-    require (File.dirname(__FILE__) + '/secrets')
+    require(File.dirname(__FILE__) + '/secrets')
     set :root, File.dirname(__FILE__)
     set :haml, { :format => :html5, :ugly => true }
     Mongoid.load!(File.dirname(__FILE__) + '/mongoid.yml')
+    # set :stylus, {:compress => true} # gzip compression
 
     configure do
-      enable  :logging, :dump_errors, :cross_origin #:sessions
+      enable :logging, :dump_errors, :cross_origin #:sessions
     end
 
     require 'jsonify'
     require 'jsonify/tilt'
     helpers do
-      def jsonify(*args) 
-        render(:jsonify, *args) 
+      def jsonify(*args)
+        render(:jsonify, *args)
       end
     end
 
@@ -42,10 +41,6 @@ module KeyMS
     set :allow_methods, [:get, :post, :put]
 
     ##### Routes #####
-    Dir.glob(File.dirname(__FILE__) + '/routes/*.rb') { |file| require file}
-
-
+    Dir.glob(File.dirname(__FILE__) + '/routes/*.rb') { |file| require file }
   end
-
-
 end

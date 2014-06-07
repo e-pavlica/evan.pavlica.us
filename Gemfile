@@ -22,6 +22,8 @@ gem 'haml'
 
 # use stylus for styling
 gem 'stylus', :require => 'stylus/tilt'
+# use coffeescript for js
+gem 'coffee-script'
 
 # use Mongo for the database
 gem 'mongoid', '~> 3.1.6'

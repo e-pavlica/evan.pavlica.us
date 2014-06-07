@@ -14,6 +14,10 @@ GEM
       bson (~> 1.10.0)
     builder (3.0.4)
     coderay (1.1.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.7.0)
     daemons (1.1.9)
     eventmachine (1.0.3)
     execjs (2.0.2)
@@ -77,6 +81,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   bson_ext
+  coffee-script
   haml
   jsonify
   jwt

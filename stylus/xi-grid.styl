@@ -1,0 +1,48 @@
+// Xi-Grid 0.1
+// a reponsive grid system
+// designed by Evan Pavlica  (c) 2014
+// License: GPL
+
+// please use this with normalize.css for proper perfomance.
+
+.xi-container
+  width 95%
+  margin 0 auto
+
+
+// Rows.
+.xi-row
+  position relative
+  width 100%
+  margin 0 auto
+  padding 0
+  font-size 0
+  // non-responsive columns
+  for i in (1..12)
+    for j in (1..12)
+      if (i / j) <= 1
+        .xi-{i}-{j}
+          width (i / j * 100%)
+          display inline-block
+          font-size 12px
+          vertical-align top
+
+  // responsive columns
+  div[class*='xi-r-']
+    display inline-block
+    font-size 1rem
+    vertical-align top
+
+  @media only screen and (min-width: 768px)
+    for i in (1..12)
+      for j in (1..12)
+        if (i / j) <= 1
+          .xi-r-{i}-{j}
+            width (i / j * 100%)
+  
+  @media only screen and (max-width: 767px)
+    for i in (1..12)
+      for j in (1..12)
+        if (i / j) <= 1
+          .xi-r-{i}-{j}
+            width 100%

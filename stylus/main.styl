@@ -1,0 +1,174 @@
+// =================================== //
+//        Styles for pavlica.us        //
+//        May, 2014.                   //
+// =================================== //
+
+
+// ============= Colors! ============= //
+
+// dark purple
+primary = #531666
+// light purple
+orchid = #C96CAA
+// copper - gold
+gold = #BA8B40
+// light green
+leaf = #93C91B 
+// dark green
+grass = #3C7D22
+
+// ============= Grid System ========= //
+@import 'xi-grid'
+
+// ============= Mixins ============== //
+@import 'mixins'
+
+// ============= General Styling ===== //
+html
+  font-size 14px
+
+body
+  font-family 'Exo 2', sans-serif
+  font-size 1rem
+  color white
+  background url('/images/gplaypattern-blk.png')
+
+.centered
+  text-align center
+
+.left
+  float left
+  &:after
+    content ''
+    clear both
+
+.right
+  float right
+  &:after
+    content ''
+    clear both
+
+// ============= Header ============= //
+header 
+  height 100vh
+.evan-pic
+  position relative
+  width 100%
+  height 100vh
+  img
+    width 100%
+    display block
+    position absolute
+    bottom 0
+
+.name
+  font-size 4em
+  color leaf
+  margin 10% 0 0 60%
+  p
+    color white
+    font-size .5em
+    margin 10% 0 0 10%
+  @media only screen and (max-width: 767px)
+    margin 10px
+
+#downArrow
+  font-size 15em
+  position absolute
+  bottom 5%
+  left 5%
+  .fa
+    display block
+    line-height .25em
+
+
+// ============= Navigation ========= //
+#navbar
+  display none
+  z-index 999
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 70px
+  background-color black
+  border-bottom 3px solid white
+  ul
+  li
+    list-style none
+    margin 0
+    padding 0
+    text-align center
+    height inherit
+  li
+    display inline-block
+    border-right 1px dotted white
+    min-width 10%
+    margin-right -5px
+    &:hover
+      background-color rgba(orchid, 0.5)
+    &:last-child
+      border-right none
+    a
+      vertical-align middle
+      height 20px
+      margin 25px 0
+      display block
+      text-decoration none
+      color white
+#logo
+  position absolute
+  height 100px
+  width 100px
+  background-color white
+  border 5px solid black
+  border-radius(50%)
+  color black
+  &:after
+    clear both
+
+.e
+.p
+  font-size 65px
+  font-weight 500
+  position absolute
+.e
+  margin 0 0 0 15px
+.p
+  margin 20px 0 0 47px
+      
+
+// ============= #about section ===== //
+
+#about
+  background-image url('/images/dtla.jpg')
+  background-position center 20%
+  background-size cover
+  background-color primary
+  background-blend-mode multiply
+  min-height 90vh
+  padding 70px 0 0
+  > div
+    // background rgba(primary, 0.7)
+    // min-height inherit
+  article
+    padding 30px 10px
+
+// ============= #resume section ===== //
+
+.emphasis
+  font-weight 700
+
+#resume
+  padding 90px 0 0
+  div
+    vertical-align middle
+
+.resume-section
+  margin-top 20px
+
+#education
+#employment
+#techExperience
+  > .xi-row
+    margin 10px 0

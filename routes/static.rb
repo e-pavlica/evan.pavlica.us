@@ -20,4 +20,8 @@ class KeyMS::App < Sinatra::Application
   get '/blog' do
     haml :blog
   end
+
+  post '/test' do
+    "uploaded! #{params}"
+  end
 end
