@@ -14,7 +14,7 @@ class KeyMS::App < Sinatra::Application
     # return all blog posts that are published
     get '/posts.?:format?' do
       content_type :json
-      @posts = Post.where(published:true)
+      @posts = Post.where(published: true)
       jsonify :posts
     end
 
