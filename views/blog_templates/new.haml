@@ -8,5 +8,5 @@
 
 #keyms-md.keyms-md-input
   %textarea(ng-model='post.content')
+#keyms-preview(marked='post.content')
 
-#keyms-rendered-md.keyms-rendered-md(ng-bind-html="renderMarkdown(post.content)")

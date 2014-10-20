@@ -3,11 +3,6 @@
 app.controller('PostsController', function($scope, Post) {
   $scope.posts = Post.get();
   $scope.post = {title: '', content:'', category:''};
-  $scope.renderMarkdown = function(md) {
-    return markdown.toHTML(md);
-  };
-  
-
   $scope.submitPost = function() {
     var newPost = new Post($scope.post);
     newPost.$save();

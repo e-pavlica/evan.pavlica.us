@@ -1,12 +1,12 @@
 'use strict';
 
+// App initialization & dependency injection.
 var app = angular.module('keymsApp', [
-  'ngCookies',
   'ngResource',
-  'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'hc.marked'
 ])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'templates/index.html',
@@ -28,29 +28,37 @@ var app = angular.module('keymsApp', [
         redirectTo: '/'
       });
 
-  });
-  
+  }])
+  // Config the marked angular module
+  .config(['markedProvider', function(markedProvider) {
+    markedProvider.setOptions({
+      gfm: true,
+      tables: true
+    });
+  }])
+
   // the following is from the Auth0 token-auth example.
-// it adds the suth token to the headers of $http requests
-
-app.factory('authInterceptor', function ($rootScope, $q, $window) {
-  return {
-    request: function (config) {
-      config.headers = config.headers || {};
-      if ($window.sessionStorage.token) {
-        config.headers.Authorization = $window.sessionStorage.token;
-      }
-      return config;
-    },
-    responseError: function (rejection) {
-      if (rejection.status === 401) {
-        // handle the case where the user is not authenticated
-      }
-      return $q.reject(rejection);
+  // it adds the auth token to the headers of $http requests
+  .factory('authInterceptor', ['$rootScope', '$q', '$window',
+    function ($rootScope, $q, $window) {
+      return {
+        request: function (config) {
+          config.headers = config.headers || {};
+          if ($window.sessionStorage.token) {
+            config.headers.Authorization = $window.sessionStorage.token;
+          }
+          return config;
+        },
+        responseError: function (rejection) {
+          if (rejection.status === 401) {
+            // handle the case where the user is not authenticated
+          }
+          return $q.reject(rejection);
+        }
+      };
     }
-  };
-});
+  ])
+  .config(function ($httpProvider) {
+    $httpProvider.interceptors.push('authInterceptor');
+  });
 
-app.config(function ($httpProvider) {
-  $httpProvider.interceptors.push('authInterceptor');
-});

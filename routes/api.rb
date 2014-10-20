@@ -90,6 +90,7 @@ class KeyMS::App < Sinatra::Application
     post '/login.?:format?' do #authenticate user
       content_type :json
       payload = JSON.parse(request.body.read)
+      puts payload.inspect
       if @user = User.find_by(email: payload['email'])
 
         if @user.authenticate(payload['password'])
