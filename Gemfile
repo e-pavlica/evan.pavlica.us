@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.4'
 
 # include the sinatra DSL
 gem 'sinatra', :require => 'sinatra/base'
@@ -19,6 +20,8 @@ gem 'jwt'
 
 # use haml for templates
 gem 'haml'
+# add support for partials
+gem 'sinatra-partial'
 
 # use stylus for styling
 gem 'stylus', :require => 'stylus/tilt'

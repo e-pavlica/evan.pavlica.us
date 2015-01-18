@@ -16,6 +16,7 @@ module KeyMS
     register Sinatra::Contrib
     register Sinatra::Subdomain
     register Sinatra::CrossOrigin
+    register Sinatra::Partial
 
     ##### application configuration #####
     require(File.dirname(__FILE__) + '/secrets')
@@ -26,6 +27,9 @@ module KeyMS
 
     configure do
       enable :logging, :dump_errors, :cross_origin #:sessions
+      set :allow_origin, :any # TODO: lock this down before deploy
+      set :allow_credentials, true
+      set :allow_methods, [:get, :post, :put]
     end
 
     require 'jsonify'
@@ -35,10 +39,6 @@ module KeyMS
         render(:jsonify, *args)
       end
     end
-
-    set :allow_origin, :any # TODO: lock this down before deploy
-    set :allow_credentials, true
-    set :allow_methods, [:get, :post, :put]
 
     ##### Routes #####
     Dir.glob(File.dirname(__FILE__) + '/routes/*.rb') { |file| require file }
