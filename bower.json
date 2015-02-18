@@ -21,7 +21,6 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "normalize.css": "~3.0.2",
-    "requirejs": "~2.1.15",
     "fontawesome": "~4.2.0"
   }
 }

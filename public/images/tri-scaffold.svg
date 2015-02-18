@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300">
-  <path d="M0,0 L700,0 S710,2 720,20 L620,280 T600,300 L0,300" stroke="#ccc" />
+  <g id="triangle-1" class="triangle">
+    <path d="M0 0h700s19.22-.515 20 20L620 280c-4.05 11.898-15.754 18.49-20 20-4.246 1.51-600 0-600 0" stroke="#ccc"/>
+  </g>
 </svg>
