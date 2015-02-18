@@ -4,7 +4,7 @@
     %title evan pavlica | resume
     %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
     %script{src:'//code.jquery.com/jquery-1.10.2.min.js'}
-    %script{src:'/javascript/comment.min.js', firebase:'https://fire-list.firebaseio.com/'}
+    -# %script{src:'/javascript/comment.min.js', firebase:'https://fire-list.firebaseio.com/'}
     %link{href:'http://fonts.googleapis.com/css?family=Exo+2:300,400,700,900', rel:'stylesheet', type:'text/css'}
     %link{href:'/styles/normalize.css', rel:'stylesheet', type:'text/css'}
     %link{href:'/styles/site.css', rel:'stylesheet', type:'text/css'}
@@ -31,18 +31,12 @@
             %a{href:'mailto:epavlica@gmail.com'}epavlica@gmail.com
 
       #resumeBody
-
-        / ******* Languages & Technologies *******
+        -# ******* Languages & Technologies *******
         .row.section
           .g-1-4.centered.o-1
             .dot{title:'Languages & Technologies'}
-              .v-1-3
-              .v-1-3
+              .vertical-centered-third
                 %i{class:'fa fa-info'}
-              .v-1-3
-            /%span{class:'fa-stack fa-4x'}
-            /  %i{class:'fa fa-circle fa-stack-2x'}
-            /  %i{class:'fa fa-info fa-stack-1x fa-inverse'}
             .label
               Info
           #languages.g-3-4.o-2
@@ -63,51 +57,29 @@
 
           .g-1-4.centered.o-2
             .dot{title:'Development Experience'}
-              .v-1-3
-              .v-1-3
+              .vertical-centered-third
                 %i{class:'fa fa-code'}
-              .v-1-3
             .label
               Development Experience
 
           #techExperience.g-3-4.o-1
-            /.g-1.emphasis
-            /  Projects:
-
             .row
-              / .g-1-4.emphasis
-              /   %a{target:'_blank', href:'http://rockprodigy.com'} Rock Prodigy
-              / .g-3-4.description
-              /   As a web development consultant, I have helped add new features & improve the UX of Rock Prodigy's In-App webviews.
-
               .g-1-4.emphasis
-                %a{target:'_blank', href:'http://tiqtac.herokuapp.com/'} Tiq Taq Toe
+                %a{target:'_blank', href:'http://boombotix.com'} Boombotix
               .g-3-4.description
-                A multi-player tic-tac-toe game built in Angular.js with a Firebase backend.
-
-
-              .g-1-4.emphasis
-                %a{target:'_blank', href:'http://dalsegno.herokuapp.com'} dalSegno
-              .g-3-4.description
-                A bulletin board web app intended for small communities; built on Ruby on Rails 4 with a MongoDB backend.
-
-
-              / .g-1-4.emphasis
-              /   %a{target:'_blank', href:'http://hoptoitfunding.com'} Hop To It
-              / .g-3-4.description
-              /   A crowd-funding web app built on Rails 4 and PostreSQL that would enable verified 501(c)3 organizations to crowd-fund projects.
+                As a major client of Alto Labs, I have had the opportunity to build several new features and implement substantial redesigns for the Boombotix site. Major projects include the 'Build-A-Bot' feature and the Single Page Checkout.
 
               .g-1-4.emphasis
-                %a{target:'_blank', href:'http://spyrolo.us'} Spyrolous
+                %a{target:'_blank', href:'http://spyrolous.herokuapp.com'} Spyrolous
               .g-3-4.description
                 A multi-user / multi-screen drawing app using jQuery and Snap.svg, built on Rails 4 and PostgreSQL.
-
 
               .g-1-4.centered
                 %a{target:'_blank', href:'https://github.com/xicreative'}
                   %i{class:'fa fa-github fa-2x'}
+
               .g-3-4.description.emphasis
-                Please visit my github to see the source code for all of my projects:
+                Please visit my github to see some samples of my work:
                 %a{target:'_blank', href:'https://github.com/xicreative'}github.com/xicreative
 
 
@@ -115,22 +87,29 @@
         .row.section
           .g-1-4.centered.o-1
             .dot{title:'Employment'}
-              .v-1-3
-              .v-1-3
+              .vertical-centered-third
                 %i{class:'fa fa-briefcase'}
-              .v-1-3
             .label
               Work Experience
           #employment.g-3-4.o-2
             .row
               .g-1-3
+                Alto Labs
+              .g-1-3.emphasis
+                Software Engineer
+              .g-1-3
+                2014 - Present
+            .g-1.description
+              Architect new features and maintain servers and codebase for clients.
+            .row
+              .g-1-3
                 General Assembly
               .g-1-3.emphasis
-                WDI Expert-In-Residence
+                WDI Instructor
               .g-1-3
-                &nbsp; 2014 - Present
+                &nbsp; 2014
             .g-1.description
-              Instruct students in Ruby on Rails, Angular.js, and web standards & technologies during evening office hour sessions.
+              Taught Ruby on Rails, Angular.js, and web standards &amp; technologies for the 12-week full-time immersive course.
             .row
               .g-1-3
                 Music Prodigy
@@ -146,18 +125,16 @@
               .g-1-3.emphasis
                 Admin. Assistant
               .g-1-3
-                &nbsp; 2007-2013
+                &nbsp; 2007 - 2013
             .g-1.description
               Prize Warehouse Administrative Assistant responsible for overseeing operations of $4.3 Million warehouse. Duties included inventory management, collaboration with <i>The Price is Right</i> producers, management of department records storage, and preparation of merchandise for display.
 
-        / ****** Education Section *******
+        -# ****** Education Section *******
         .row.section
           .g-1-4.centered.o-2
             .dot{title:'Education'}
-              .v-1-3
-              .v-1-3
+              .vertical-centered-third
                 %i{class:'fa fa-book'}
-              .v-1-3
             .label
               Education
 
@@ -172,7 +149,7 @@
               .g-1-2
                 Fall 2013
             .g-1.description
-              Full-stack web development training with emphasis in Ruby on Rails & Java script. This 12-week full-time immersive taught me agile web development & BDD / TDD, and gave me opportunity to add four projects to my portfolio while gaining valuable insight into the LA Startup scene.
+              Full-stack web development training with emphasis in Ruby on Rails &amp; JavaScript. This 12-week full-time immersive taught me agile web development &amp; BDD / TDD, and gave me opportunity to add four projects to my portfolio while gaining valuable insight into the LA Startup scene.
             .row
               .g-1-2
                 Columbia College Hollywood
@@ -181,7 +158,7 @@
               .g-1-2.emphasis
                 BFA, Cinema / Television
               .g-1-2
-                2005-2008
+                2005 - 2008
             .g-1.description
               <i>Producing Emphasis.</i> Education in all aspects of film / television production. Skills from Columbia College include Budgeting & Scheduling, Production Management, Sound Mixing, and Video Editing.
 

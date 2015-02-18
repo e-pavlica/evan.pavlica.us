@@ -68,10 +68,18 @@ padding: 0 .5em;
   }
 }
 
-.v-1-3 {
+.vertical-centered-third {
   width:100%;
   height:0;
   padding-bottom:33.33%;
+}
+.vertical-centered-third::before,
+.vertical-centered-third::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 33.33%;
 }
 
 
