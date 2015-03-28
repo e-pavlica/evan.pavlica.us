@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.1.4'
 
 # include the sinatra DSL
 gem 'sinatra', :require => 'sinatra/base'
