@@ -26,7 +26,10 @@ module KeyMS
     Mongoid.load!(File.dirname(__FILE__) + '/mongoid.yml')
 
     configure do
-      enable  :logging, :dump_errors, :cross_origin #:sessions
+     set :allow_origin, :any # TODO: lock this down before deploy
+     set :allow_credentials, true
+     set :allow_methods, [:get, :post, :put]
+     enable  :logging, :dump_errors, :cross_origin #:sessions
     end
 
     require 'jsonify'
@@ -36,10 +39,6 @@ module KeyMS
         render(:jsonify, *args) 
       end
     end
-
-    set :allow_origin, :any # TODO: lock this down before deploy
-    set :allow_credentials, true
-    set :allow_methods, [:get, :post, :put]
 
     ##### Routes #####
     Dir.glob(File.dirname(__FILE__) + '/routes/*.rb') { |file| require file}
