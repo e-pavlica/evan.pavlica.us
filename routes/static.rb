@@ -16,11 +16,12 @@ class KeyMS::App < Sinatra::Application
     haml :about
   end
 
-  get '/fonts/:file' do
+  get '/fonts/*' do
+    file = File.open("#{KeyMS::App.root}/fonts/#{params[:splat].first}")
     headers(
       "Access-Control-Allow-Origin" => "*",
-      "Requested-File" => params[:file] )
-    send_file "fonts/#{params[:file]}"
+      "Requested-File" => params[:splat] )
+    send_file file
   end
 
   # base page for blog (angular index page)
