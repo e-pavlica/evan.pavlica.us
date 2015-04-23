@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 246 300" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="double-chevron" transform="translate(0 -300)">
+        <path d="M1.282 9.008c14.8-12.44 27.04-11.043 41.592 0 9.53 15.052 34.88 109.214 58.035 161.53 21.52 40.73 22.245 39.657 42.557 0 26.082-50.922 58.035-161.53 58.035-161.53 14.186-13.322 33.01-10.624 42.56 0 10.532 11.72-23.515 129.61-72.545 201.187-48.73 57.825-48.362 57.893-98.658 0C27.397 138.62-7.19 16.13 1.28 9.008z"/>
+    </g>
+    <animateTransform
+      xlink:href="#double-chevron"
+      attributeName="transform"
+      type="translate"
+      from="0 -300"
+      to="0 300"
+      begin="0"
+      dur="2s"
+      fill="freeze"
+      repeatCount="indefinite"
+    />
+</svg>

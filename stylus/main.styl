@@ -74,14 +74,14 @@ header
     margin 10px
 
 #downArrow
-  font-size 15em
   position absolute
-  bottom 5%
-  left 5%
-  .fa
-    display block
-    line-height .25em
-
+  bottom 0
+  left 1rem
+  width 4rem
+  svg
+    fill gold
+    height 100%
+    width 100%
 
 // ============= Navigation ========= //
 #navbar
@@ -173,3 +173,19 @@ header
 #techExperience
   > .xi-row
     margin 10px 0
+
+// 'Fracture' svg
+.frac-a
+  fill grass
+  &:hover
+    fill lighten(grass, 15%)
+.frac-b
+  fill primary
+  &:hover
+    fill lighten(primary, 15%)
+.frac-c
+  fill gold
+  &:hover
+    fill lighten(gold, 15%)
+#frac-gmcla
+  fill url('/images/fracture/ggdu.jpg')

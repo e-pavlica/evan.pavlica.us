@@ -25,6 +25,9 @@ module KeyMS
     set :stylus, {:compress => true}
     Mongoid.load!(File.dirname(__FILE__) + '/mongoid.yml')
 
+    # Helper methods
+    require root + '/helpers/application_helpers.rb'
+
     configure do
       enable :logging, :dump_errors, :cross_origin #:sessions
       set :allow_origin, :any # TODO: lock this down before deploy
