@@ -1,0 +1,207 @@
+@import normalize.css
+@import bourbon/bourbon
+@import mixins
+@import fonts.css
+
+body
+  color: $base_color
+  font-family: 'Aileron', sans-serif
+  box-sizing: border-box
+  font-size: 16px
+
+h1
+  font-weight: 900
+
+h2
+  font-weight: 300
+  text-transform: uppercase
+
+h3
+  color: $light_green
+
+hr
+  border: 0
+  border-bottom: 3px solid transparentize($turquiose, 0.5)
+
+main
+  position: relative
+  height: 100vh
+  overflow: hidden
+
+section
+  +display(flex)
+  +justify-content(center)
+  +align-items(center)
+  height: 100vh
+  width: 100vw
+  position: absolute
+  top: 0
+  left: 0
+  transform: translate(100vw,0)
+  background-image: image-url('dark_wood.png')
+  +hi-res-media
+    background-image: image-url('dark_wood_@2X.png')
+
+a
+  color: $turquiose
+  text-decoration: none
+
+  &:visited
+    color: darken($turquiose, 5%)
+
+.landing-panel
+  transform: translate(0,0)
+
+  h1
+    color: $light_green
+    font-size: 4em
+    margin: 0.5em 0
+
+.section-content
+  max-width: 50%
+  padding: 2em
+
+.page-btn
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  background: transparent
+  border: 0
+  position: absolute
+  bottom: 0
+
+  svg
+    width: 10vw
+    fill: $secondary_higlight
+    opacity: 0.4
+
+.next-btn
+  right: 0
+
+.back-btn
+  left: 0
+
+  svg
+    transform: scaleX(-1)
+
+.dot
+  position: absolute
+  display: block
+  top: 50%
+  left: 0
+  width: 105%
+  padding-bottom: 105%
+  background: transparentize($primary_highlight, 0.5)
+  transform: translate(-2%, -50%)
+  border-radius: 50%
+  z-index: -1
+
+.bg-dot-1
+  position: absolute
+  width: 300px
+  padding-bottom: 300px
+  border-radius: 50%
+  background: transparentize($marsala, 0.7)
+  top: -50px
+  right: -70px
+  +transition(transform 100ms ease)
+
+.bg-dot-2
+  position: absolute
+  width: 100px
+  padding-bottom: 100px
+  border-radius: 50%
+  background: transparentize($peach, 0.7)
+  top: 90px
+  right: 165px
+
+.hero-image
+  picture, img
+    width: 100%
+
+  &::before
+    content: ''
+    display: block
+    position: absolute
+    height: 100vh
+    width: 1em
+    top: 50%
+    background: transparentize($peach, 0.6)
+    transform: translate(3em, -50%)
+    z-index: -1
+
+  &::after
+    content: ''
+    display: block
+    position: absolute
+    height: 100vh
+    width: .25em
+    top: 50%
+    background: transparentize($marsala, 0.6)
+    transform: translate(4.5em, -50%)
+    z-index: -1
+
+.horizontal-line
+  &::before
+    content: ''
+    display: block
+    height: 0.5em
+    position: absolute
+    background: transparentize($turquiose, 0.7)
+    width: 100vw
+    z-index: -1
+    left: 0
+    top: 4em
+
+  &::after
+    content: ''
+    display: block
+    height: 0.25em
+    position: absolute
+    background: transparentize($light_green, 0.7)
+    width: 100vw
+    z-index: -1
+    left: 0
+    top: 5em
+
+.jobs-container
+  padding: 0
+  margin: 0
+  list-style: none
+
+.job
+  border-bottom: 3px solid transparentize($turquiose, 0.7)
+  cursor: pointer
+  // height: 50px
+  // +transition(height 500ms ease 100ms)
+
+  &:hover
+    border-bottom: 3px solid $turquiose
+
+  &::-webkit-scrollbar
+    display: none
+
+  h4,
+  h5
+    margin: 5px 0
+
+  h5 
+    color: $turquiose
+
+  .contents
+    max-height: 0
+    +transition(all 500ms ease-out)
+    overflow: hidden
+    padding: 0
+
+  &.open 
+    .contents
+      padding-bottom: 1rem
+      max-height: 300px
+      +transition(all 500ms ease-in)
+
+.relative
+  position: relative
+
+.flex
+  +flex(1)
