@@ -19,6 +19,7 @@
   ],
   "dependencies": {
     "web-animations-js": "^2.1.4",
-    "parallax": "^2.1.3"
+    "parallax": "^2.1.3",
+    "hammerjs": "^2.0.6"
   }
 }

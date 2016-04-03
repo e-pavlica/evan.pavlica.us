@@ -36,13 +36,12 @@ helpers do
     end
   end
 
-  def page_btn(back, target)
-    dir_class = back ? 'back-btn' : 'next-btn'
+  def page_btn(forward)
+    dir_class = forward ? 'next-btn' : 'back-btn'
     return <<~HTML
       <button type="button"
-              data-animation-target="#{target}"
               class="page-btn #{dir_class}"
-              title="#{back ? 'Previous' : 'Next'} Page">
+              title="#{forward ? 'Next' : 'Previous'} Page">
         #{inline_svg('next1.svg')}
       </button>
     HTML

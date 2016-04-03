@@ -3,11 +3,21 @@
 @import mixins
 @import fonts.css
 
+a
+  color: $turquiose
+  text-decoration: none
+
+  &:visited
+    color: darken($turquiose, 5%)
+
 body
   color: $base_color
   font-family: 'Aileron', sans-serif
   box-sizing: border-box
   font-size: 16px
+  background-image: image-url('dark_wood.png')
+  +hidpi(2.0)
+    background-image: image-url('dark_wood_@2X.png')
 
 h1
   font-weight: 900
@@ -28,6 +38,15 @@ main
   height: 100vh
   overflow: hidden
 
+nav
+  position: fixed
+  bottom: 0
+  width: 100vw
+  z-index: 100
+  +display(flex)
+  +align-items(center)
+  +justify-content(space-between)
+
 section
   +display(flex)
   +justify-content(center)
@@ -38,16 +57,6 @@ section
   top: 0
   left: 0
   transform: translate(100vw,0)
-  background-image: image-url('dark_wood.png')
-  +hi-res-media
-    background-image: image-url('dark_wood_@2X.png')
-
-a
-  color: $turquiose
-  text-decoration: none
-
-  &:visited
-    color: darken($turquiose, 5%)
 
 .landing-panel
   transform: translate(0,0)
@@ -58,6 +67,7 @@ a
     margin: 0.5em 0
 
 .section-content
+  box-sizing: border-box
   max-width: 50%
   padding: 2em
 
@@ -67,22 +77,25 @@ a
   appearance: none
   background: transparent
   border: 0
-  position: absolute
-  bottom: 0
+  opacity: 1
+  +transition(opacity 500ms ease)
 
   svg
     width: 10vw
-    fill: $secondary_higlight
-    opacity: 0.4
+    fill: transparentize($secondary_higlight, 0.6)
+
+.hidden
+  opacity: 0
+  +transition(opacity 500ms ease)
 
 .next-btn
-  right: 0
+  +order(2)
 
 .back-btn
-  left: 0
+  +order(1)
 
   svg
-    transform: scaleX(-1)
+    +transform(scaleX(-1))
 
 .dot
   position: absolute
@@ -104,7 +117,7 @@ a
   background: transparentize($marsala, 0.7)
   top: -50px
   right: -70px
-  +transition(transform 100ms ease)
+  z-index: -1
 
 .bg-dot-2
   position: absolute
@@ -114,11 +127,13 @@ a
   background: transparentize($peach, 0.7)
   top: 90px
   right: 165px
+  z-index: -1
 
 .hero-image
   picture, img
     width: 100%
 
+.landing-panel-stripe
   &::before
     content: ''
     display: block
@@ -205,3 +220,67 @@ a
 
 .flex
   +flex(1)
+
+.container
+  +display(flex)
+  +align-items(center)
+  // Fix for Firefox flexbox overflow bug
+  min-height: 1px
+
++mobile
+  main
+    overflow-y: scroll
+
+  section
+    box-sizing: border-box
+    padding: 1em 1em 15vw 1em
+    height: auto
+
+  .container
+    +flex-direction(column)
+
+  .section-content
+    +flex(1)
+    padding: 0
+    max-width: initial
+    // Fix for Firefox flexbox overflow bug
+    min-height: 1px
+
+  .hero-image
+    text-align: center
+
+    picture,
+    img
+      max-width: 50%
+      width: auto
+      max-height: 100%
+
+  .landing-panel
+    text-align: center
+
+    h1
+      font-size: 2.5rem
+
+  .landing-panel-stripe
+    &::before
+      top: 4rem
+      left: 0
+      height: 1em
+      width: 100vw
+      +transform(none)
+
+    &::after
+      top: 5.5rem
+      left: 0
+      width: 100vw
+      height: 0.25rem
+      +transform(none)
+
+  nav
+    background:
+      image: linear-gradient(to top, black -5%, transparent)
+
+  .page-btn
+    svg
+      width: 15vw
+      fill: transparentize($marsala, 0.2)

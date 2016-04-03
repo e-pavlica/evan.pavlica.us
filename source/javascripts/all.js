@@ -1,23 +1,49 @@
 //= require web-animations-js/web-animations-next-lite.min.js
-//= require movr.js
+//= require hammerjs/hammer.js
 
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    var getCurrentSlide = function(el) {
-        var parent = el.parentElement;
-        if (parent.nodeName === 'SECTION') { return parent; }
-
-        while(parent !== document.body) {
-            parent = parent.parentElement;
-            if (parent.nodeName === 'SECTION') { return parent; }
-        }
+    var slides = {
+        available: [
+            '.landing-panel',
+            '.work-history',
+            '.education'
+        ],
+        current: 0
     };
 
+    var nextBtn = document.querySelector('.next-btn');
+    var backBtn = document.querySelector('.back-btn');
+
+    var hide = function(el) {
+        el.classList.add('hidden');
+        el.disabled = true;
+    };
+    var show = function(el) {
+        el.classList.remove('hidden');
+        el.disabled = false;
+    };
+
+    // Show / Hide the page buttons
+    var showHideButtons = function() {
+        if (slides.available[slides.current + 1] !== undefined) {
+            show(nextBtn); 
+        } else {
+            hide(nextBtn);
+        }
+
+        if (slides.available[slides.current - 1] !== undefined) {
+            show(backBtn);
+        } else {
+            hide(backBtn);
+        }
+    };
+    showHideButtons();
+
     var animateSlide = function(e, forward) {
-        var target = e.target;
-        var currentSlide = getCurrentSlide(target);
-        var nextSlide = document.querySelector(target.dataset.animationTarget);
+        var currentSlide = document.querySelector(slides.available[slides.current]);
+        var nextSlide = document.querySelector(slides.available[ forward ? slides.current + 1 : slides.current - 1]);
         var inPosition = { transform: 'translate(0, 0)' };
         var outPostitionNext = { transform: 'translate(100vw, 0)' };
         var outPostitionPrevious = { transform: 'translate(-100vw, 0)' };
@@ -32,28 +58,24 @@ document.addEventListener('DOMContentLoaded', function() {
             currentSlide.animate(transformOut, animationConfig);
             nextSlide.animate(transformIn, animationConfig);
         }
-        target.animate([
-            { opacity: getComputedStyle(target).opacity },
-            { opacity: 0 }
-        ], { duration: 600, easing: 'ease-out' });
+
+        slides.current = forward ? slides.current + 1 : slides.current - 1;
+
+        showHideButtons();
     };
 
     var animateBackSlide = function(e) {
+        if (slides.available[slides.current - 1] === undefined) { return; }
         animateSlide(e, false);
     };
 
     var animateNextSlide = function(e) {
+        if (slides.available[slides.current + 1] === undefined) { return; }
         animateSlide(e, true);
     };
 
-    var buttons = document.querySelectorAll('.page-btn');
-    Array.prototype.forEach.call(buttons, function(btn) {
-        if (btn.classList.contains('next-btn')) {
-            btn.addEventListener('click', animateNextSlide, false);
-        } else if (btn.classList.contains('back-btn')) {
-            btn.addEventListener('click', animateBackSlide, false);
-        }
-    });
+    nextBtn.addEventListener('click', animateNextSlide, false);
+    backBtn.addEventListener('click', animateBackSlide, false);
 
     var jobs = document.querySelectorAll('.job');
     var openCloseJob = function() {
@@ -67,4 +89,11 @@ document.addEventListener('DOMContentLoaded', function() {
     Array.prototype.forEach.call(jobs, function(jobEl) {
         jobEl.addEventListener('click', openCloseJob);
     });
+
+
+    // Setup Hammer JS to recognize Swipe Gestures
+    var mc = new Hammer.Manager(document.body);
+    mc.add(new Hammer.Swipe({ direction: Hammer.DIRECTION_HORIZONTAL }));
+    mc.on('swipeleft', animateNextSlide);
+    mc.on('swiperight', animateBackSlide);
 }, false);
