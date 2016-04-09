@@ -98,16 +98,15 @@ section
     +transform(scaleX(-1))
 
 .dot
-  position: absolute
-  display: block
-  top: 50%
-  left: 0
-  width: 105%
-  padding-bottom: 105%
-  background: transparentize($primary_highlight, 0.5)
-  transform: translate(-2%, -50%)
-  border-radius: 50%
-  z-index: -1
+  &::before
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle fill="#{transparentize($teal, 0.5)}" cx="50" cy="50" r="50"/></svg>')
+    position: absolute
+    display: block
+    top: 50%
+    left: 0
+    width: 105%
+    transform: translate(-2%, -50%)
+    z-index: -1
 
 .bg-dot-1
   position: absolute
@@ -187,14 +186,22 @@ section
 .job
   border-bottom: 3px solid transparentize($turquiose, 0.7)
   cursor: pointer
-  // height: 50px
-  // +transition(height 500ms ease 100ms)
+  position: relative
 
   &:hover
     border-bottom: 3px solid $turquiose
 
   &::-webkit-scrollbar
     display: none
+
+  &::after
+    content: '▵'
+    position: absolute
+    top: 1rem
+    right: 0
+    color: white
+    +transform(rotate(180deg))
+    +transition(transform 500ms $in_out_back)
 
   h4,
   h5
@@ -210,10 +217,14 @@ section
     padding: 0
 
   &.open 
+    &::after
+      +transform(rotate(0deg))
+      +transition(transform 500ms ease)
+
     .contents
       padding-bottom: 1rem
       max-height: 300px
-      +transition(all 500ms ease-in)
+      +transition(all 500ms $in_out_back)
 
 .relative
   position: relative

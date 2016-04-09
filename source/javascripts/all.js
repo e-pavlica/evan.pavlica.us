@@ -80,6 +80,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var jobs = document.querySelectorAll('.job');
     var openCloseJob = function() {
         var target = this;
+        if (target.classList.contains('open')) {
+            target.classList.remove('open');
+            return;
+        }
         Array.prototype.forEach.call(jobs, function(jobEl) {
             jobEl.classList.remove('open');
         });
