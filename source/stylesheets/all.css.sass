@@ -2,6 +2,7 @@
 @import bourbon/bourbon
 @import mixins
 @import fonts.css
+@import resume
 
 a
   color: $turquiose
@@ -12,12 +13,13 @@ a
 
 body
   color: $base_color
-  font-family: 'Aileron', sans-serif
+  font-family: "Aileron", sans-serif
   box-sizing: border-box
   font-size: 16px
-  background-image: image-url('dark_wood.png')
-  +hidpi(2.0)
-    background-image: image-url('dark_wood_@2X.png')
+  background-image: image-url("dark_wood.png")
+
+  +hidpi(2)
+    background-image: image-url("dark_wood_@2X.png")
 
 h1
   font-weight: 900
@@ -38,28 +40,34 @@ main
   height: 100vh
   overflow: hidden
 
-nav
+.pages-nav
   position: fixed
   bottom: 0
   width: 100vw
   z-index: 100
+
   +display(flex)
+
   +align-items(center)
+
   +justify-content(space-between)
 
 section
   +display(flex)
+
   +justify-content(center)
+
   +align-items(center)
+
   height: 100vh
   width: 100vw
   position: absolute
   top: 0
   left: 0
-  transform: translate(100vw,0)
+  transform: translate(100vw, 0)
 
 .landing-panel
-  transform: translate(0,0)
+  transform: translate(0, 0)
 
   h1
     color: $light_green
@@ -78,6 +86,7 @@ section
   background: transparent
   border: 0
   opacity: 1
+
   +transition(opacity 500ms ease)
 
   svg
@@ -89,17 +98,16 @@ section
   +transition(opacity 500ms ease)
 
 .next-btn
-  +order(2)
+  +order(3)
 
 .back-btn
   +order(1)
-
   svg
     +transform(scaleX(-1))
 
 .dot
   &::before
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle fill="#{transparentize($teal, 0.5)}" cx="50" cy="50" r="50"/></svg>')
+    content: circle_svg(transparentize($teal, 0.5))
     position: absolute
     display: block
     top: 50%
@@ -134,7 +142,7 @@ section
 
 .landing-panel-stripe
   &::before
-    content: ''
+    content: ""
     display: block
     position: absolute
     height: 100vh
@@ -145,11 +153,11 @@ section
     z-index: -1
 
   &::after
-    content: ''
+    content: ""
     display: block
     position: absolute
     height: 100vh
-    width: .25em
+    width: 0.25em
     top: 50%
     background: transparentize($marsala, 0.6)
     transform: translate(4.5em, -50%)
@@ -157,7 +165,7 @@ section
 
 .horizontal-line
   &::before
-    content: ''
+    content: ""
     display: block
     height: 0.5em
     position: absolute
@@ -168,7 +176,7 @@ section
     top: 4em
 
   &::after
-    content: ''
+    content: ""
     display: block
     height: 0.25em
     position: absolute
@@ -195,35 +203,41 @@ section
     display: none
 
   &::after
-    content: '▵'
+    content: "▵"
     position: absolute
     top: 1rem
     right: 0
     color: white
+
     +transform(rotate(180deg))
+
     +transition(transform 500ms $in_out_back)
 
   h4,
   h5
     margin: 5px 0
 
-  h5 
+  h5
     color: $turquiose
 
   .contents
     max-height: 0
+
     +transition(all 500ms ease-out)
+
     overflow: hidden
     padding: 0
 
-  &.open 
+  &.open
     &::after
       +transform(rotate(0deg))
+
       +transition(transform 500ms ease)
 
     .contents
       padding-bottom: 1rem
       max-height: 300px
+
       +transition(all 500ms $in_out_back)
 
 .relative
@@ -234,9 +248,44 @@ section
 
 .container
   +display(flex)
+
   +align-items(center)
+
   // Fix for Firefox flexbox overflow bug
   min-height: 1px
+
+footer
+  position: fixed
+  bottom: 0px
+  text-align: center
+  width: 100%
+  padding-bottom: 1rem
+
+.resume-link
+  +order(2)
+  +align-self(flex-end)
+  padding-bottom: 1rem
+  color: $base_color
+  text-transform: uppercase
+  position: relative
+
+  &::after
+    content: circle_svg(transparentize($peach, 0.5))
+    position: absolute
+    top: 3rem
+    left: -50%
+    width: 200%
+    z-index: -1
+    +transform(translate(0))
+    +transition(all 500ms $in_out_back)
+
+  &:visited
+    color: $base_color
+
+  &:hover
+    &::after
+      +transform(translate(0, -5rem))
+      +transition(all 500ms $in_out_back)
 
 +mobile
   main
@@ -252,8 +301,10 @@ section
 
   .section-content
     +flex(1)
+
     padding: 0
     max-width: initial
+
     // Fix for Firefox flexbox overflow bug
     min-height: 1px
 
@@ -278,6 +329,7 @@ section
       left: 0
       height: 1em
       width: 100vw
+
       +transform(none)
 
     &::after
@@ -285,9 +337,10 @@ section
       left: 0
       width: 100vw
       height: 0.25rem
+
       +transform(none)
 
-  nav
+  .pages-nav
     background:
       image: linear-gradient(to top, black -5%, transparent)
 
@@ -295,3 +348,4 @@ section
     svg
       width: 15vw
       fill: transparentize($marsala, 0.2)
+
