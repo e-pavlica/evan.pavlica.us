@@ -18,6 +18,7 @@ page '/*.txt', layout: false
 #  which_fake_page: "Rendering a fake page with a local variable" }
 
 # General configuration
+activate :sprockets
 
 # Reload the browser automatically whenever files change
 configure :development do
@@ -38,7 +39,7 @@ helpers do
 
   def page_btn(forward)
     dir_class = forward ? 'next-btn' : 'back-btn'
-    return <<~HTML
+    <<~HTML
       <button type="button"
               class="page-btn #{dir_class}"
               title="#{forward ? 'Next' : 'Previous'} Page">

@@ -1,3 +1,4 @@
+@import mixins
 @import flex_grid
 
 /* Support for browsers that can't do flex-wrap (firefox)
@@ -106,12 +107,13 @@ nav.resume
 
   body
     margin: .5cm
+    color: black !important
 
   footer
     display: none
 
   a
-    color: black
+    color: black !important
 
   nav
     display: none
@@ -126,9 +128,6 @@ nav.resume
   .red
     color: black
 
-  #commentJs
-    display: none
-
   .resume-dot
     border: 2px solid black
     color: black
@@ -142,3 +141,6 @@ nav.resume
 
     .g-3-4
       flex: 5 4 80%
+
+  .section
+    border-bottom: 1px solid black

@@ -1,0 +1,80 @@
+<svg viewBox="0 0 1000 500"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <pattern id="snappic1"
+             width="1000"
+             height="500"
+             patternUnits="userSpaceOnUse">
+      <image xlink:href="<%= asset_path :images, 'Snappic2.png' %>"
+             x="0"
+             y="0"
+             width="1000"
+             height="500"/>
+    </pattern>
+    <pattern id="boombotix1"
+             width="1000"
+             height="500"
+             patternUnits="userSpaceOnUse">
+      <image xlink:href="<%= asset_path :images, 'Boombotix.png' %>"
+             x="0"
+             y="0"
+             width="1000"
+             height="500"/>
+    </pattern>
+  </defs>
+  <style>
+    .triangle {
+      filter: grayscale(100%);
+      cursor: pointer;
+    }
+    .triangle:hover {
+      filter: none;
+    }
+    .triangle.open {
+      filter: none;
+    }
+    .snappic {
+      fill: url(#snappic1);
+    }
+    .boombotix {
+      fill: url(#boombotix1);
+    }
+  </style>
+  <g id="backgrounds">
+    <path d="M0 0 L 500 250 L 1000 500 L 0 500 Z" class="triangle snappic"/>
+    <path d="M0 0 L 1000 0 L 1000 500 L 500 250 Z" class="triangle boombotix"/>
+  </g>
+
+  <g id="boombotix-text" class="project-info">
+    <text class="project-title" x="50" y="250">Boombotix</text>
+    <a xlink:href="https://boombotix.com">
+      <text class="project-link" x="50" y="300">http://boombotix.com</text>
+    </a>
+
+    <text class="project-description" x="50" y="330">
+      As the lead maintainer of this site, I implemented the Build-A-Bot feature
+      <tspan x="50" y="360">as well as many custom integrations into the client's Spree storefront.</tspan>
+      <tspan x="50" y="390">Technologies Used:</tspan>
+      <tspan x="100" y="420">▫ Ruby on Rails</tspan>
+      <tspan x="100" y="450">▫ Spree Commerce</tspan>
+      <tspan x="100" y="480">▫ Angular.js</tspan>
+    </text>
+  </g>
+
+  <g id="snappic-text" class="project-info">
+    <text class="project-title" x="50" y="75">Snappic</text>
+    <a xlink:href="https://www.snappic.io">
+      <text class="project-link" x="50" y="125">https://snappic.io</text>
+    </a>
+
+    <text class="project-description" x="50" y="155">
+      I was the lead developer for this project. I engineered the MVC, then lead a team
+      <tspan x="50" y="185">of engineers to roll out the completed application.</tspan>
+      <tspan x="50" y="215">Technologies Used:</tspan>
+      <tspan x="100" y="245">▫ Polymer (Frontend)</tspan>
+      <tspan x="100" y="275">▫ Ruby on Rails (API Server)</tspan>
+      <tspan x="100" y="305">▫ Cordova (iOS app)</tspan>
+    </text>
+  </g>
+</svg>
