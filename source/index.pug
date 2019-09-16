@@ -1,0 +1,55 @@
+doctype html
+meta(charset="utf-8")
+title= title
+link(rel='stylesheet' href='./styles.sass')
+main
+  article#resume
+    h1 Evan Pavlica
+
+    section#bio
+      // TODO: Headshot
+      p= bio
+
+    section#work-experience.grouping
+      h3 Work Experience
+
+      .icon.coffee-shop-sign
+        include images/barista-icons_coffee-shop-sign.svg
+
+      ul
+        each experience in resume.work_experience
+          li
+            h4= experience.name
+            p.dates
+              span= experience.dates.from
+              span -
+              span= experience.dates.to
+            p.description= experience.description
+
+    section#projects.grouping
+      h3 Projects
+
+      .icon.coffee-shop-sign
+        include images/barista-icons_coffeepot.svg
+
+      ul
+        each project in resume.projects
+          li
+            h4= project.name
+            p.stack= project.stack
+            p.description= project.description
+
+    section#education.grouping
+      h3 Education
+
+      .icon.coffee-shop-sign
+        include images/barista-icons_coffee-to-go.svg
+      ul
+        each school in resume.education
+          li
+            h4= school.name
+            p.dates= school.year
+            p.description= school.program
+
+    footer
+      // TODO: Contact Info

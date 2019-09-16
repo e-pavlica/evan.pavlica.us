@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Syne';
+  font-weight: 400;
+  font-style: normal;
+  src: url('fonts/syne-typeface/Webfonts/Syne-Regular.eot') format('embedded-opentype'),
+       url('fonts/syne-typeface/Webfonts/Syne-Regular.woff2') format('woff2'),
+       url('fonts/syne-typeface/Webfonts/Syne-Regular.woff') format('woff'),
+       url('fonts/syne-typeface/TTF/Syne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Syne';
+  font-weight: 700;
+  font-style: normal;
+  src: url('fonts/syne-typeface/Webfonts/Syne-Bold.eot') format('embedded-opentype'),
+       url('fonts/syne-typeface/Webfonts/Syne-Bold.woff2') format('woff2'),
+       url('fonts/syne-typeface/Webfonts/Syne-Bold.woff') format('woff'),
+       url('fonts/syne-typeface/TTF/Syne-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Syne';
+  font-weight: 800;
+  font-style: normal;
+  src: url('fonts/syne-typeface/Webfonts/Syne-Extra.eot') format('embedded-opentype'),
+       url('fonts/syne-typeface/Webfonts/Syne-Extra.woff2') format('woff2'),
+       url('fonts/syne-typeface/Webfonts/Syne-Extra.woff') format('woff'),
+       url('fonts/syne-typeface/TTF/Syne-Extra.ttf') format('truetype');
+}
