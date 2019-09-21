@@ -3,10 +3,9 @@ meta(charset="utf-8")
 title= title
 link(rel='stylesheet' href='./styles.sass')
 main
-  article#resume
-
+  article#resume.ep-paper
     header#bio
-      div
+      .text
         h1 Evan Pavlica
         p= bio
       .img-container
@@ -55,3 +54,44 @@ main
 
     footer
       // TODO: Contact Info
+      a(href="https://github.com/xicreative")
+        include ../node_modules/@mdi/svg/svg/github-circle.svg
+      a(href="https://www.linkedin.com/in/epavlica/")
+        include ../node_modules/@mdi/svg/svg/linkedin-box.svg
+      a(href="mailto:evan@pavlica.us")
+        include ../node_modules/@mdi/svg/svg/at.svg
+
+  .credits
+    h5 Credits
+    dl.hide.ep-paper
+      dt Font
+      dd
+        a(href="https://gitlab.com/bonjour-monde/fonderie/syne-typeface"
+        rel="noopener" target="_blank") "Syne" by Lucas Descroix
+      dt Background
+      dd
+        a(href="https://purtypixels.com/" rel="noopener" target="_blank") "Purty Wood" by Richard Tabor
+      dd
+        a(href="https://www.freepngimg.com/png/32784-coffee-mug-top" rel="noopener" target="_blank") "Coffee Mug Top" by FreePNGImg.com
+      dt Icons
+      dd
+        a(href="https://www.smashingmagazine.com/2016/03/freebie-barista-iconset-50-icons-eps-png-svg/" rel="noopener" target="_blank") "Barista" by Oliver Pitsch
+      dd
+        a(href="https://materialdesignicons.com/" rel="noopener" target="_blank") Material Design Icons
+script.
+  (() => {
+    'use strict';
+
+    let credits = document.querySelector('.credits');
+    const HIDE = 'hide';
+    credits.addEventListener('click', (evt) => {
+      if (evt.target.nodeName === 'A') { return; }
+      let dl = credits.querySelector('dl');
+      if (dl.classList.contains(HIDE)) {
+        dl.classList.remove(HIDE);
+      } else {
+        dl.classList.add(HIDE);
+      }
+    });
+  })();
+

@@ -7,6 +7,7 @@ $espresso: #483308
 $capuccino: #733a1d
 $macchiato: #a54e2a
 $latte: #f0ede9
+$mobile-width: 599px
 
 html
   font-size: $base
@@ -28,6 +29,17 @@ p
 ul
   list-style: none
 
+footer
+  border-top: 2px solid $macchiato
+  display: flex
+  justify-content: space-around
+  margin-top: 1rem
+  padding: 0.5rem
+
+  svg
+    fill: $espresso
+    stroke: $espresso
+
 #bio
   display: flex
 
@@ -39,10 +51,12 @@ ul
     background-image: url("images/evan.png")
     background-size: cover
     border-radius: 50%
+    min-height: 12rem
+    min-width: 12rem
     height: 15vw
     width: 15vw
 
-#resume
+.ep-paper
   @include mdc-elevation(16);
   background-color: $latte
   border-radius: $base
@@ -97,3 +111,43 @@ ul
 
   .description
     text-align: justify
+
+.credits
+  h5
+    color: $capuccino
+    cursor: pointer
+
+  .hide
+    display: none
+
+@media (max-width: $mobile-width)
+  body
+    background: right -5vw bottom -2vw / 50vw no-repeat url('images/32784-8-coffee-mug-top.png'), url('./images/purty-wood_2.png'), white
+  #resume
+    margin: 2rem 1rem 10rem
+  #bio
+    flex-direction: column
+
+    .text
+      order: 2
+      text-align: center
+
+    .img-container
+      order: 1
+
+      .headshot
+        // height: 50vw
+        margin: 0 auto
+        // width: 50vw
+
+  .grouping
+    grid-template-areas: "head" "icon" "text"
+    grid-template-columns: auto
+
+    .icon
+      height: 8rem
+      > svg
+        height: 100%
+
+    ul
+      padding: 0

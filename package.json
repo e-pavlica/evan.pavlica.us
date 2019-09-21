@@ -20,6 +20,7 @@
   "homepage": "https://github.com/xicreative/evan.pavlica.us#readme",
   "dependencies": {
     "@material/elevation": "^3.1.0",
+    "@mdi/svg": "^4.4.95",
     "node-sass": "^4.12.0",
     "normalize-scss": "^7.0.1",
     "parcel-bundler": "^1.12.3"
