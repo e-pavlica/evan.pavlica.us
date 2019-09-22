@@ -67,9 +67,11 @@ footer
 
 .icon
   width: 5rem
+
   > svg
     fill: $espresso
     stroke: $espresso
+    width: 100%
 
 .grouping
   border-top: 2px solid $macchiato
@@ -125,7 +127,7 @@ footer
   .hide
     display: none
 
-@media (max-width: $mobile-width)
+@media screen and (max-width: $mobile-width)
   body
     background: right -5vw bottom -2vw / 50vw no-repeat url('images/32784-8-coffee-mug-top.png'), url('./images/purty-wood_2.png'), white
   #resume
