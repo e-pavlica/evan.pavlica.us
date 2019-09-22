@@ -10,11 +10,12 @@ main
         p= bio
       .img-container
         .headshot
+          img(src="images/evan.png")
 
     section#work-experience.grouping
       h3 Work Experience
 
-      .icon.coffee-shop-sign
+      .icon.coffee-shop-sign.print-hidden
         include images/barista-icons_coffee-shop-sign.svg
 
       ul
@@ -30,7 +31,7 @@ main
     section#projects.grouping
       h3 Projects
 
-      .icon.coffee-shop-sign
+      .icon.coffee-pot.print-hidden
         include images/barista-icons_coffeepot.svg
 
       ul
@@ -43,7 +44,7 @@ main
     section#education.grouping
       h3 Education
 
-      .icon.coffee-shop-sign
+      .icon.coffee-cup
         include images/barista-icons_coffee-to-go.svg
       ul
         each school in resume.education
@@ -56,10 +57,13 @@ main
       // TODO: Contact Info
       a(href="https://github.com/xicreative")
         include ../node_modules/@mdi/svg/svg/github-circle.svg
+      span.social.print-only xicreative
       a(href="https://www.linkedin.com/in/epavlica/")
         include ../node_modules/@mdi/svg/svg/linkedin-box.svg
+      span.social.print-only epavlica
       a(href="mailto:evan@pavlica.us")
         include ../node_modules/@mdi/svg/svg/at.svg
+      span.social.print-only evan@pavlica.us
 
   .credits
     h5 Credits

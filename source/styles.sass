@@ -48,13 +48,14 @@ footer
 
   .headshot
     @include mdc-elevation(4);
-    background-image: url("images/evan.png")
-    background-size: cover
     border-radius: 50%
+    height: 15vw
     min-height: 12rem
     min-width: 12rem
-    height: 15vw
+    overflow: hidden
     width: 15vw
+    > img
+      width: 100%
 
 .ep-paper
   @include mdc-elevation(16);
@@ -81,6 +82,7 @@ footer
 
   h3
     color: $capuccino
+    font-size: 1.5rem
     grid-area: head
     line-height: 2rem
     margin: 0
@@ -112,6 +114,9 @@ footer
   .description
     text-align: justify
 
+.print-only
+  display: none
+
 .credits
   h5
     color: $capuccino
@@ -136,9 +141,7 @@ footer
       order: 1
 
       .headshot
-        // height: 50vw
         margin: 0 auto
-        // width: 50vw
 
   .grouping
     grid-template-areas: "head" "icon" "text"
@@ -151,3 +154,68 @@ footer
 
     ul
       padding: 0
+
+@media print
+  html
+    font-size: 10pt
+
+  @page
+    margin: 1rem
+
+  h1
+    margin: 0 0 1rem
+
+  #bio
+    margin-bottom: 0.5rem
+
+    .headshot
+      height: 10rem
+      min-height: 10rem
+      min-width: 10rem
+      width: 10rem
+    .img-container
+      margin: 0 0 0 1rem
+
+  .ep-paper
+    box-shadow: none !important
+    margin: 0
+    padding: 0
+
+  .credits
+    display: none
+
+  .print-only
+    display: initial
+
+
+  .grouping
+    grid-template-areas: "head" "text"
+    grid-template-rows: auto
+    grid-template-columns: auto
+    position: relative
+    margin: 0
+
+    h3
+      line-height: 3rem
+
+    h4
+      margin: 0.5rem 0 0
+
+    ul
+      margin: 0
+      padding: 0 2rem
+
+    .icon
+      height: 10rem
+      position: absolute
+      right: 1rem
+      bottom: 1rem
+
+      > svg
+        height: 100%
+        opacity: 0.2
+        fill: lighten($macchiato, 0.5)
+        stroke: $macchiato
+
+    .print-hidden
+      display: none
