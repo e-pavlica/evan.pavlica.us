@@ -1,3 +1,6 @@
+.bundle
+.cache
 .DS_Store
-secrets.rb
-public/javascript/libraries
+.sass-cache
+dist/
+node_modules

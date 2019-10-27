@@ -1,0 +1,223 @@
+@import '~normalize-scss/sass/_normalize'
+@import '~@material/elevation/_mixins'
+@import './styles/typography'
+
+$base: 16px
+$espresso: #483308
+$capuccino: #733a1d
+$macchiato: #a54e2a
+$latte: #f0ede9
+$mobile-width: 599px
+
+html
+  font-size: $base
+  font-family: 'Syne', sans-serif;
+
+body
+  background: right -5vw bottom -2vw / 25vw no-repeat url('images/32784-8-coffee-mug-top.png'), url('./images/purty-wood_2.png'), white
+
+h1
+  color: $espresso
+  font-size: 2.5rem
+  font-weight: 800
+  margin: 1rem 0 2rem
+
+p
+  font-size: 1rem
+  margin: 0
+
+ul
+  list-style: none
+
+footer
+  border-top: 2px solid $macchiato
+  display: flex
+  justify-content: space-around
+  margin-top: 1rem
+  padding: 0.5rem
+
+  svg
+    fill: $espresso
+    stroke: $espresso
+
+#bio
+  display: flex
+
+  .img-container
+    margin: 1rem
+
+  .headshot
+    @include mdc-elevation(4);
+    border-radius: 50%
+    height: 15vw
+    min-height: 12rem
+    min-width: 12rem
+    overflow: hidden
+    width: 15vw
+    > img
+      width: 100%
+
+.ep-paper
+  @include mdc-elevation(16);
+  background-color: $latte
+  border-radius: $base
+  margin: 2rem
+  max-width: 1024px;
+  padding: 2rem
+
+.icon
+  width: 5rem
+
+  > svg
+    fill: $espresso
+    stroke: $espresso
+    width: 100%
+
+.grouping
+  border-top: 2px solid $macchiato
+  display: grid
+  grid-template-areas: "head head" "icon text"
+  grid-template-columns: 6rem
+  grid-template-rows: 2rem auto
+  margin-top: 1rem
+  padding: 0.5rem
+
+  h3
+    color: $capuccino
+    font-size: 1.5rem
+    grid-area: head
+    line-height: 2rem
+    margin: 0
+
+  h4
+    color: $espresso
+    font-size: 1.25rem
+    margin: 1rem 0 0.5rem
+
+  ul
+    grid-area: text
+    padding: 0 2.5rem
+
+  li:first-of-type
+    h4
+      margin-top: 0
+
+  .icon
+    align-items: center
+    display: flex
+    grid-area: icon
+    justify-content: center
+    width: auto
+
+  .dates, .stack
+    color: $macchiato
+    font-weight: bold
+
+  .description
+    text-align: justify
+
+.print-only
+  display: none
+
+.credits
+  h5
+    color: $capuccino
+    cursor: pointer
+
+  .hide
+    display: none
+
+@media screen and (max-width: $mobile-width)
+  body
+    background: right -5vw bottom -2vw / 50vw no-repeat url('images/32784-8-coffee-mug-top.png'), url('./images/purty-wood_2.png'), white
+  #resume
+    margin: 2rem 1rem 10rem
+  #bio
+    flex-direction: column
+
+    .text
+      order: 2
+      text-align: center
+
+    .img-container
+      order: 1
+
+      .headshot
+        margin: 0 auto
+
+  .grouping
+    grid-template-areas: "head" "icon" "text"
+    grid-template-columns: auto
+
+    .icon
+      height: 8rem
+      > svg
+        height: 100%
+
+    ul
+      padding: 0
+
+@media print
+  html
+    font-size: 10pt
+
+  @page
+    margin: 1rem
+
+  h1
+    margin: 0 0 1rem
+
+  #bio
+    margin-bottom: 0.5rem
+
+    .headshot
+      height: 10rem
+      min-height: 10rem
+      min-width: 10rem
+      width: 10rem
+    .img-container
+      margin: 0 0 0 1rem
+
+  .ep-paper
+    box-shadow: none !important
+    margin: 0
+    padding: 0
+
+  .credits
+    display: none
+
+  .print-only
+    display: initial
+
+
+  .grouping
+    grid-template-areas: "head" "text"
+    grid-template-rows: auto
+    grid-template-columns: auto
+    position: relative
+    margin: 0
+
+    h3
+      line-height: 3rem
+
+    h4
+      margin: 0.5rem 0 0
+
+    ul
+      margin: 0
+      padding: 0 2rem
+
+    .icon
+      height: 10rem
+      position: absolute
+      right: 1rem
+      bottom: 1rem
+
+      > svg
+        height: 100%
+        opacity: 0.2
+        fill: lighten($macchiato, 0.5)
+        stroke: $macchiato
+
+    .print-hidden
+      display: none

@@ -1,0 +1,3 @@
+[submodule "source/fonts/syne-typeface"]
+	path = source/fonts/syne-typeface
+	url = https://gitlab.com/bonjour-monde/fonderie/syne-typeface.git
