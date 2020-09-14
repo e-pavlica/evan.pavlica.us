@@ -1,0 +1,94 @@
+---
+version: '3'
+
+services:
+  # Based on https://github.com/buchdag/letsencrypt-nginx-proxy-companion-compose
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - conf:/etc/nginx/conf.d
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - dhparam:/etc/nginx/dhparam
+      - certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+    restart: always
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: nginx-proxy-le
+    depends_on:
+      - nginx-proxy
+    volumes:
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - dhparam:/etc/nginx/dhparam:ro
+      - certs:/etc/nginx/certs
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: always
+
+  # Need to docker login ala the Makefile since this is a private image
+  web:
+    image: ghcr.io/xicreative/evan.pavlica.us:latest
+    container_name: static-web
+    depends_on:
+      - nginx-proxy
+      - letsencrypt
+    expose:
+      - 80
+    environment:
+      - VIRTUAL_HOST=evan.pavlica.us,pavlica.us,www.pavlica.us
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=evan.pavlica.us,pavlica.us,www.pavlica.us
+      - LETSENCRYPT_EMAIL=epavlica@gmail.com
+    restart: always
+
+  solid:
+    image: nodesolidserver/node-solid-server:latest
+    container_name: solid-server
+    depends_on:
+      - nginx-proxy
+      - letsencrypt
+    restart: always
+    expose:
+      - 8443
+
+    volumes:
+      # mount local directories to the container
+      # (!) the host directories have to exist and be owned by UID 1000
+      - /opt/solid/data:/opt/solid/data
+      - /opt/solid/.db:/opt/solid/.db
+      - /opt/solid/config:/opt/solid/config
+      - certs:/opt/solid/certs:ro
+
+    environment:
+      # (!) use your actual SOLID_SERVER_URI
+      - SOLID_SERVER_URI=https://solid.pavlica.us
+      # (!) adjust path to the letsencrypt key and cert
+      - SOLID_SSL_KEY=/opt/solid/certs/solid.pavlica.us.key
+      - SOLID_SSL_CERT=/opt/solid/certs/solid.pavlica.us.crt
+      # (!) use your actual host name
+      - VIRTUAL_HOST=solid.pavlica.us
+      - VIRTUAL_PORT=8443
+      - VIRTUAL_PROTO=https
+      # (!) use your actual host name
+      - LETSENCRYPT_HOST=solid.pavlica.us
+      - LETSENCRYPT_EMAIL=epavlica@gmail.com
+
+volumes:
+  conf:
+  vhost:
+  html:
+  dhparam:
+  certs:
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
