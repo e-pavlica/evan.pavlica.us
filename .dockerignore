@@ -1,0 +1,6 @@
+.cache/
+.git/
+.gitignore
+.gitmodules
+dist/
+node_modules/
