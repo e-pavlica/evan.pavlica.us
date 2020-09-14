@@ -26,6 +26,8 @@
     "parcel-bundler": "^1.12.3"
   },
   "devDependencies": {
+    "imagemin-pngquant": "^9.0.1",
+    "parcel-plugin-imagemin": "^4.0.1",
     "pug": "^2.0.4"
   }
 }
