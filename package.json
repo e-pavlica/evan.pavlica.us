@@ -18,16 +18,21 @@
     "url": "https://github.com/xicreative/evan.pavlica.us/issues"
   },
   "homepage": "https://github.com/xicreative/evan.pavlica.us#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@material/elevation": "^3.1.0",
     "@mdi/svg": "^4.4.95",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^7.1.3",
+    "imagemin-pngquant": "^9.0.1",
     "node-sass": "^4.12.0",
     "normalize-scss": "^7.0.1",
-    "parcel-bundler": "^1.12.3"
-  },
-  "devDependencies": {
-    "imagemin-pngquant": "^9.0.1",
-    "parcel-plugin-imagemin": "^4.0.1",
-    "pug": "^2.0.4"
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-serve": "^1.0.4",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.0.0",
+    "svelte": "^3.24.1",
+    "svelte-preprocess": "^4.0.0"
   }
 }
