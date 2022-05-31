@@ -1,5 +1,5 @@
-@import '~normalize-scss/sass/_normalize'
-@import '~@material/elevation/_mixins'
+@import 'normalize-scss/sass/normalize/_import-now'
+@import '@material/elevation/_mixins'
 @import './styles/typography'
 
 $base: 16px
@@ -11,7 +11,7 @@ $mobile-width: 599px
 
 html
   font-size: $base
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', sans-serif
 
 body
   background: right -5vw bottom -2vw / 25vw no-repeat url('images/32784-8-coffee-mug-top.png'), url('./images/purty-wood_2.png'), white
@@ -39,6 +39,7 @@ footer
   svg
     fill: $espresso
     stroke: $espresso
+    width: 1.5rem
 
 #bio
   display: flex
@@ -47,7 +48,7 @@ footer
     margin: 1rem
 
   .headshot
-    @include mdc-elevation(4);
+    @include mdc-elevation(4)
     border-radius: 50%
     height: 15vw
     min-height: 12rem
@@ -58,11 +59,11 @@ footer
       width: 100%
 
 .ep-paper
-  @include mdc-elevation(16);
+  @include mdc-elevation(16)
   background-color: $latte
   border-radius: $base
   margin: 2rem
-  max-width: 1024px;
+  max-width: 1024px
   padding: 2rem
 
 .icon
@@ -123,9 +124,22 @@ footer
   h5
     color: $capuccino
     cursor: pointer
+    margin: 1rem
+
+  dl
+    bottom: 0
+    left: 0
+    position: fixed
 
   .hide
     display: none
+
+  .close
+    cursor: pointer
+    font-size: 2rem
+    position: absolute
+    right: 1.5rem
+    top: .5rem
 
 @media screen and (max-width: $mobile-width)
   body
@@ -162,8 +176,10 @@ footer
     font-size: 10pt
 
   @page
-    margin: 1rem
+    margin: 0
 
+  body
+    margin: .5in
   h1
     margin: 0 0 1rem
 
@@ -189,7 +205,6 @@ footer
   .print-only
     display: initial
 
-
   .grouping
     grid-template-areas: "head" "text"
     grid-template-rows: auto
@@ -212,6 +227,9 @@ footer
       position: absolute
       right: 1rem
       bottom: 1rem
+
+      object[type="image/svg+xml"]
+        fill: red
 
       > svg
         height: 100%
