@@ -1,0 +1,202 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<link rel="icon" sizes="any" href="images/barista-icons_cup-of-coffee.svg">
+<title>Evan Pavlica, Software Engineer</title>
+<link rel="stylesheet" href="./styles.sass"></link>
+
+<main vocab="https://schema.org/" typeof="Person" resource="#me">
+  <article id="resume" class="ep-paper">
+    <header id="bio">
+      <div class="text">
+        <h1 property="name">Evan Pavlica</h1>
+        <p property="description">
+          Portland-based <span property="jobTitle">Software Engineer</span> Evan Pavlica has
+          advanced development experience in web and backend service architectures. He has a passion
+          for clean, self-documenting code, and for embracing the latest standards and technologies.
+          With prowess in Ruby, Python, and Javascript, Evan has lead multiple custom software
+          projects and spearheaded integrations with both internal teams and xternal vendors in his
+          current role at Sony Pictures Entertainment.
+
+          In his personal time, he is proud to sing with the Portland Gay Men's Chorus.
+      </div>
+      <div class="img-container">
+        <div class="headshot">
+          <img src="images/evan.png" alt="Headshot of Evan Pavlica." property="image" />
+        </div>
+      </div>
+    </header>
+
+    <section id="work-experience" class="grouping">
+      <h3>Work Experience</h3>
+      <div class="icon coffee-shop-sign print-hidden">
+        <icon src="images/barista-icons_coffee-shop-sign.svg"></icon>
+      </div>
+      <ul>
+        <li property="worksFor" typeof="OrganizationRole">
+          <h4 property="worksFor" typeof="Organization">
+            <span property="name">Sony Pictures Entertainment<span>
+          </h4>
+          <p class="dates">
+            <span property="startDate" content="2016-05-01">May 2016</span>-Present
+          </p>
+          <p class="description" property="description">
+            As a member of the Digital Media Group, provide modern, cloud-based solutions for the
+            studio's digital media supply chain.
+          </p>
+        </li>
+        <li property="alumniOf" typeof=OrganizationRole">
+          <h4 property="alumniOf" typeof="Organization">
+            <span property="name">Alto Labs</span>
+          </h4>
+          <p class="dates">
+            <span property="startDate" content="2014-09-01">Sept 2014</span
+            >-<span property="endDate" content="2016-05-01">May 2016</span>
+          </p>
+          <p class="description" property="description">
+            Created new features and maintained exiting systems for multiple clients.  Lead the
+            development of new projects.
+          </p>
+        </li>
+        <li property="alumniOf" typeof="OrganizationRole">
+          <h4 property="alumniOf" typeof="Organization">
+            <span property="name">General Assembly</span>
+          </h4>
+          <p class="dates">
+            <span property="startDate" content="2014-02-01">Feb 2014</span
+            >-<span property="endDate" content="2014-09-01">Sept 2014</span>
+          </p>
+          <p class="description" property="description">
+            Instructed dozens of developers in Rails, AngularJS, and more for the full-time Web
+            Development Immersive course.
+          </p>
+        </li>
+        <li property="alumniOf" typeof="OrganizationRole">
+          <h4 property="alumniOf" typeof="Organization">
+            <span property="name">Music Prodigy</span>
+          </h4>
+          <p class="dates">
+            <span property="startDate" content="2014-02-01">Feb 2014</span
+            >-<span property="endDate" content="2014-04-01">Apr 2014</span>
+          </p>
+          <p class="description" property="description">
+            Enhanced existing features and refactored legacy code in collaboration with a talented
+            full-remote team.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="grouping" id="projects">
+      <h3>Projects</h3>
+      <div class="icon coffee-pot print-hidden">
+        <icon src="images/barista-icons_coffeepot.svg"></icon>
+      </div>
+      <ul>
+        <li property="subjectOf" typeof="CreativeWork">
+          <h4 property="name">Sony Pictures Digital Media Suply Chain</h4>
+          <p class="stack" about="#me">
+            <span property="knowsAbout">Python</span>,
+            <span property="knowsAbout">Angular</span>,
+            <span property="knowsAbout">DynamoDB</span>,
+            <span property="knowsAbout">OpenSearch</span>,
+            <span property="knowsAbout">AWS</span>
+          <p class="description" property="description">
+            The Digital Media Supply Chain initiative is a future-looking project that aims to
+            more efficiently leverage the studio's IP by providing visibility and access to digital
+            assets.  In pursuit of the <a href="https://movielabs.com/production-technology/the-2030-vision">
+              MovieLabs 2030 vision</a> this is an ambitious cloud-native collection of microservices that
+            aims to transform the storage and delivery of content.
+
+        <li property="subjectOf" typeof="CreativeWork">
+          <h4 property="name">Sony Pictures Runner</h4>
+          <p class="stack" about="#me">
+            <span property="knowsAbout">Ruby on Rails</span>,
+            <span property="knowsAbout">AngularJS</span>,
+            <span property="knowsAbout">Elasticsearch</span>,
+            <span property="knowsAbout">Docker</span>,
+            <span property="knowsAbout">Webpack</span>,
+            <span property="knowsAbout">Postgresql</span>,
+            <span property="knowsAbout">AWS</span>
+          <p class="description" property="description">
+            As the central repository for the studio's digital marketing assets, Runner is a linchpin
+            in many workflows.  Features include file uploads and sharing, image resizing, metadata
+            tagging, and video proxy generation, as well as archival storage.
+
+        <li property="subjectOf" typeof="CreativeWork">
+          <h4 property="name">Boombotix</h4>
+          <p class="stack" about="#me">
+            <span property="knowsAbout">Ruby on Rails</span>,
+            <span property="knowsAbout">AngularJS</span>,
+            <span property="knowsAbout">Spree</span>,
+            <span property="knowsAbout">Postgresql</span>,
+            <span property="knowsAbout">Heroku</span>
+          <p class="description">
+            The Boombotix website and store offered several unique features, including a custom
+            speaker builder and a 'Get OBD ID'd' feature promoting the brand's collaboration with
+            WuTang Clan.  The Spree framework served as the backend for this Heroku-hosted
+            application.
+      </ul>
+    </section>
+
+    <section class="grouping" id="education">
+      <h3>Education</h3>
+      <div class="icon coffee-cup">
+        <icon src="images/barista-icons_coffee-to-go.svg"></icon>
+      </div>
+      <ul>
+        <li property="alumniOf" typeof="OrganizationRole">
+          <h4 property="alumniOf" typeof="Organization">
+            <span property="name">General Assembly</span>
+          </h4>
+          <p class="dates"><span property="endDate">2013</span>
+          <p class="description" property="description">Web Development Immersive
+        <li property="alumniOf" typeof="OrganizationRole">
+          <h4 property="alumniOf" typeof="Organization">
+            <span>Columbia College Hollywood</span>
+          </h4>
+          <p class="dates"><span property="endDate">2008</span>
+          <p class="description" description="description">BFA, Cinema and Television
+      </ul>
+    </section>
+
+    <footer>
+      <a href="https://github.com/xicreative">
+        <icon src="../node_modules/@mdi/svg/svg/github-circle.svg"></icon>
+      </a><span class="social print-only">xicreative</span>
+      <a href="https://www.linkedin.com/in/epavlica/">
+        <icon src="../node_modules/@mdi/svg/svg/linkedin-box.svg"></icon>
+      </a><span class="social print-only">epavlica</span>
+      <a href="mailto:evan@pavlica.us">
+        <icon src="../node_modules/@mdi/svg/svg/at.svg"></icon>
+      </a><span class="social print-only">evan@pavlica.us</span>
+    </footer>
+  </article>
+  <div class="credits">
+    <h5>Credits</h5>
+    <dl class="hide ep-paper">
+      <dt>Font</dt>
+      <dd><a href="https://gitlab.com/bonjour-monde/fonderie/syne-typeface" rel="noopener" target="_blank">"Syne" by Lucas Descroix</a></dd>
+      <dt>Background</dt>
+      <dd><a href="https://purtypixels.com/" rel="noopener" target="_blank">"Purty Wood" by Richard Tabor</a></dd>
+      <dd><a href="https://www.freepngimg.com/png/32784-coffee-mug-top" rel="noopener" target="_blank">"Coffee Mug Top" by FreePNGImg.com</a></dd>
+      <dt>Icons</dt>
+      <dd><a href="https://www.smashingmagazine.com/2016/03/freebie-barista-iconset-50-icons-eps-png-svg/" rel="noopener" target="_blank">"Barista" by Oliver Pitsch</a></dd>
+      <dd><a href="https://materialdesignicons.com/" rel="noopener" target="_blank">Material Design Icons</a></dd>
+      <span class="close" title="Close Credits">×</span>
+    </dl>
+  </div>
+</main>
+<script>
+  (()=>{
+    const credits = document.querySelector('.credits');
+    const HIDE = 'hide';
+    credits.addEventListener('click', (evt) => {
+      if (evt.target.nodeName === 'A') return;
+      const dl = credits.querySelector('dl');
+      if (dl.classList.contains(HIDE)) dl.classList.remove(HIDE);
+      else dl.classList.add(HIDE);
+    });
+  })();
+</script>
