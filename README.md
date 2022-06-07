@@ -21,4 +21,4 @@ into the `dist` directory.
 
 ## Deployment
 
-via Docker and make, see the pertinent files for details.
+Run `make` to build a container image and push it to Github's package repo.
