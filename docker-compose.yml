@@ -4,11 +4,11 @@ version: '3'
 services:
   # Based on https://github.com/buchdag/letsencrypt-nginx-proxy-companion-compose
   nginx-proxy:
-    image: jwilder/nginx-proxy
+    image: nginxproxy/nginx-proxy
     container_name: nginx-proxy
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
     volumes:
       - conf:/etc/nginx/conf.d
       - vhost:/etc/nginx/vhost.d
@@ -17,11 +17,11 @@ services:
       - certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
     labels:
-      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+      - 'com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy'
     restart: always
 
   letsencrypt:
-    image: jrcs/letsencrypt-nginx-proxy-companion
+    image: nginxproxy/acme-companion
     container_name: nginx-proxy-le
     depends_on:
       - nginx-proxy
@@ -31,11 +31,14 @@ services:
       - dhparam:/etc/nginx/dhparam:ro
       - certs:/etc/nginx/certs
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - FILES_PERMS=644
+      - FOLDERS_PERMS=755
     restart: always
 
   # Need to docker login ala the Makefile since this is a private image
   web:
-    image: ghcr.io/xicreative/evan.pavlica.us:latest
+    image: ghcr.io/e-pavlica/evan.pavlica.us:latest
     container_name: static-web
     depends_on:
       - nginx-proxy
@@ -69,17 +72,19 @@ services:
 
     environment:
       # (!) use your actual SOLID_SERVER_URI
-      - SOLID_SERVER_URI=https://solid.pavlica.us
+      - SOLID_SERVER_URI=https://j.pavlica.us
+      - SOLID_MULTIUSER=true
       # (!) adjust path to the letsencrypt key and cert
-      - SOLID_SSL_KEY=/opt/solid/certs/solid.pavlica.us.key
-      - SOLID_SSL_CERT=/opt/solid/certs/solid.pavlica.us.crt
+      - SOLID_SSL_KEY=/opt/solid/certs/j.pavlica.us.key
+      - SOLID_SSL_CERT=/opt/solid/certs/j.pavlica.us.crt
       # (!) use your actual host name
-      - VIRTUAL_HOST=solid.pavlica.us
+      - VIRTUAL_HOST=j.pavlica.us,evan.j.pavlica.us
       - VIRTUAL_PORT=8443
       - VIRTUAL_PROTO=https
       # (!) use your actual host name
-      - LETSENCRYPT_HOST=solid.pavlica.us
+      - LETSENCRYPT_HOST=j.pavlica.us,evan.j.pavlica.us
       - LETSENCRYPT_EMAIL=epavlica@gmail.com
+
 
 volumes:
   conf:
@@ -90,5 +95,6 @@ volumes:
 
 networks:
   default:
-    external:
-      name: nginx-proxy
+    name: nginx-proxy
+    external: true
+
