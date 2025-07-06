@@ -1,10 +1,7 @@
 ---
-version: '3'
-
 services:
-  # Based on https://github.com/buchdag/letsencrypt-nginx-proxy-companion-compose
   nginx-proxy:
-    image: nginxproxy/nginx-proxy
+    image: nginxproxy/nginx-proxy:1.7-alpine
     container_name: nginx-proxy
     ports:
       - "80:80"
@@ -13,7 +10,6 @@ services:
       - conf:/etc/nginx/conf.d
       - vhost:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
-      - dhparam:/etc/nginx/dhparam
       - certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
     labels:
@@ -21,19 +17,22 @@ services:
     restart: always
 
   letsencrypt:
-    image: nginxproxy/acme-companion
+    image: nginxproxy/acme-companion:2.6
     container_name: nginx-proxy-le
     depends_on:
       - nginx-proxy
-    volumes:
-      - vhost:/etc/nginx/vhost.d
-      - html:/usr/share/nginx/html
-      - dhparam:/etc/nginx/dhparam:ro
-      - certs:/etc/nginx/certs
-      - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
+      - DEFAULT_EMAIL=epavlica@gmail.com
       - FILES_PERMS=644
       - FOLDERS_PERMS=755
+    volumes_from:
+      - nginx-proxy
+    volumes:
+      - acme:/etc/acme.sh
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - certs:/etc/nginx/certs
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: always
 
   # Need to docker login ala the Makefile since this is a private image
@@ -52,49 +51,65 @@ services:
       - LETSENCRYPT_EMAIL=epavlica@gmail.com
     restart: always
 
-  solid:
-    image: nodesolidserver/node-solid-server:latest
-    container_name: solid-server
-    depends_on:
-      - nginx-proxy
-      - letsencrypt
-    restart: always
-    expose:
-      - 8443
+  # solid:
+  #   image: nodesolidserver/node-solid-server:latest
+  #   container_name: solid-server
+  #   depends_on:
+  #     - nginx-proxy
+  #     - letsencrypt
+  #   restart: always
+  #   expose:
+  #     - 8443
 
-    volumes:
-      # mount local directories to the container
-      # (!) the host directories have to exist and be owned by UID 1000
-      - /opt/solid/data:/opt/solid/data
-      - /opt/solid/.db:/opt/solid/.db
-      - /opt/solid/config:/opt/solid/config
-      - certs:/opt/solid/certs:ro
+  #   volumes:
+  #     # mount local directories to the container
+  #     # (!) the host directories have to exist and be owned by UID 1000
+  #     - /opt/solid/data:/opt/solid/data
+  #     - /opt/solid/.db:/opt/solid/.db
+  #     - /opt/solid/config:/opt/solid/config
+  #     - certs:/opt/solid/certs:ro
 
+  #   environment:
+  #     # (!) use your actual SOLID_SERVER_URI
+  #     - SOLID_SERVER_URI=https://j.pavlica.us
+  #     - SOLID_MULTIUSER=true
+  #     # (!) adjust path to the letsencrypt key and cert
+  #     - SOLID_SSL_KEY=/opt/solid/certs/j.pavlica.us.key
+  #     - SOLID_SSL_CERT=/opt/solid/certs/j.pavlica.us.crt
+  #     # (!) use your actual host name
+  #     - VIRTUAL_HOST=j.pavlica.us,evan.j.pavlica.us
+  #     - VIRTUAL_PORT=8443
+  #     - VIRTUAL_PROTO=https
+  #     # (!) use your actual host name
+  #     - LETSENCRYPT_HOST=j.pavlica.us,evan.j.pavlica.us
+  #     - LETSENCRYPT_EMAIL=epavlica@gmail.com
+
+  linkstack:
+    image: linkstackorg/linkstack:latest
     environment:
-      # (!) use your actual SOLID_SERVER_URI
-      - SOLID_SERVER_URI=https://j.pavlica.us
-      - SOLID_MULTIUSER=true
-      # (!) adjust path to the letsencrypt key and cert
-      - SOLID_SSL_KEY=/opt/solid/certs/j.pavlica.us.key
-      - SOLID_SSL_CERT=/opt/solid/certs/j.pavlica.us.crt
-      # (!) use your actual host name
-      - VIRTUAL_HOST=j.pavlica.us,evan.j.pavlica.us
-      - VIRTUAL_PORT=8443
+      - TZ=America/Los_Angeles
+      - SERVER_ADMIN=admin@pavlica.us
+      - HTTP_SERVER_NAME=links.pavlica.us
+      - HTTPS_SERVER_NAME=links.pavlica.us
+      - LOG_LEVEL=info
+      - PHP_MEMORY_LIMIT=512M
+      - UPLOAD_MAX_FILESIZE=16M
+      - VIRTUAL_HOST=links.pavlica.us
+      - VIRTUAL_PORT=443
       - VIRTUAL_PROTO=https
-      # (!) use your actual host name
-      - LETSENCRYPT_HOST=j.pavlica.us,evan.j.pavlica.us
+      - LETSENCRYPT_HOST=links.pavlica.us
       - LETSENCRYPT_EMAIL=epavlica@gmail.com
-
+    ports:
+      - 443
+    volumes:
+      - linkstack:/htdocs
+    restart: unless-stopped
 
 volumes:
+  acme:
   conf:
   vhost:
   html:
   dhparam:
   certs:
-
-networks:
-  default:
-    name: nginx-proxy
-    external: true
-
+  linkstack:
